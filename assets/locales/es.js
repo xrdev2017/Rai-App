@@ -1,0 +1,472 @@
+const es = {
+  onboarding: {
+    title1: "Comienza con un estilo más inteligente",
+    subtitle1:
+      "Organiza tu guardarropa, descubre conjuntos creados por IA y compra las últimas tendencias en una sola aplicación",
+    title2: "Tu estilista y comprador personal con IA",
+    subtitle2: "Ideas de outfits y compras inteligentes hechas solo para ti.",
+    title3: "Estilízalo, cómpralo, compártelo",
+    subtitle3:
+      "Planifica outfits, compra nuevas prendas y conecta con la comunidad de estilo.",
+    next: "Siguiente",
+    getStarted: "Empezar",
+    login: "Iniciar sesión",
+    signup: "Registrarse",
+    footer: "@2025 Rai",
+  },
+
+  itemTab: {
+    text1: "Toca el botón más para empezar a agregar a tu guardarropa",
+    text2: "Aún no tienes artículos en tu guardarropa, ¡vamos!",
+  },
+
+  lookbookTab: {
+    text1: "¡Cataloga tus outfits!",
+    text2: "Toca el botón más para crear un lookbook",
+  },
+
+  outfitTab: {
+    text1: "Te esperan nuevos looks",
+    text2: "Toca el botón más para comenzar a estilizar",
+  },
+  plannerScreen: {
+    text1:
+      "Pulsa el botón más para empezar a añadir elementos a tu planificador",
+    text2: "Aún no hay elementos en tu planificador, así que vamos a ello",
+  },
+
+  outfitTab: {
+    text1: "Nuevos looks te están esperando",
+    text2: "Pulsa el botón más para empezar a crear estilos",
+  },
+
+  colorPallete: {
+    title: "Colores",
+  },
+  colors: {
+    blue500: "Azul",
+    emerald500: "Esmeralda",
+    amber500: "Ámbar",
+    red500: "Rojo",
+    violet500: "Violeta",
+    indigo600: "Índigo",
+    cyan500: "Cian",
+    orange500: "Naranja",
+    green600: "Verde",
+    pink500: "Rosa",
+    lime500: "Lima",
+    purple500: "Morado",
+    red600: "Rojo oscuro",
+    indigo500: "Índigo",
+    teal500: "Verde azulado",
+    green500: "Verde",
+    sky500: "Azul cielo",
+    fuchsia500: "Fucsia",
+    slate500: "Pizarra",
+    rose500: "Rosa",
+  },
+
+  seasons: {
+    fall: "Otoño",
+    summer: "Verano",
+    spring: "Primavera",
+    all: "Todas",
+  },
+
+  account: {
+    title: "Cuenta",
+    quickSettings: "Ajustes rápidos",
+    notifications: "Notificaciones",
+    language: "Idioma",
+    accountSection: "Cuenta",
+    privacySettings: "Privacidad y ajustes",
+    feedbackHelp: "Comentarios y ayuda",
+    rateRai: "Calificar Rai",
+    shareProfile: "Compartir perfil",
+    logout: "Cerrar sesión",
+    shareProfileMessage: "¡Mira el perfil de {{username}} en Rai!",
+  },
+
+  accountPrivacy: {
+    title: "Privacidad y ajustes",
+    personalInfo: "Información personal",
+    editProfile: "Editar perfil",
+    passwordPrivacy: "Contraseña y privacidad",
+    language: "Idioma",
+  },
+
+  accountPrivacyPersonal: {
+    title: "Información personal",
+    name: "Nombre",
+    username: "Usuario",
+    email: "Correo electrónico",
+    dob: "Fecha de nacimiento",
+    gender: "Género",
+    bio: "Bio",
+    location: "Ubicación",
+    enterField: "Ingresar {{field}}",
+  },
+
+  accountPrivacyEdit: {
+    title: "Perfil",
+    addProfilePhoto: "Agregar foto de perfil",
+    photoUploaded: "Foto subida correctamente",
+    tapCamera: "Toca la cámara para tomar una foto",
+    uploadGallery: "Subir desde galería",
+    name: "Nombre",
+    enterName: "Ingresar nombre",
+    username: "Usuario",
+    enterUsername: "Ingresar usuario",
+    bio: "Bio",
+    enterBio: "Ingresa tu bio",
+    gender: "Género",
+    location: "Ubicación",
+    loading: "Cargando categorías...",
+    error: "No se pudieron cargar las categorías",
+    save: "Guardar",
+    saving: "Guardando...",
+    profileUpdateFailed:
+      "Falló la actualización del perfil. Inténtalo de nuevo.",
+    dateOfBirth: "Fecha de nacimiento",
+    day: "DD",
+    month: "MM",
+    year: "AAAA",
+  },
+
+  gender: {
+    male: "Hombre",
+    female: "Mujer",
+    others: "Otros",
+  },
+
+  select: "Seleccionar",
+  reset: "Restablecer",
+  apply: "Aplicar",
+  AddItem: "Agregar artículo",
+  loading: "Cargando...",
+  load_error: "Error al cargar los datos",
+  search_placeholder: "Buscar...",
+  no_matches: 'No se encontraron resultados para "{query}"',
+  select_item: "Seleccionar artículo",
+  not_selected: "No seleccionado",
+
+  accountPrivacyPassword: {
+    title: "Contraseña y privacidad",
+    password: "Contraseña",
+    privacy: "Privacidad",
+    blockedProfile: "Perfil bloqueado",
+    deleteAccount: "Eliminar cuenta",
+    deleteAccountModal: {
+      description: "Tu cuenta será eliminada en 30 días",
+      confirm: "Sí, eliminar cuenta",
+      cancel: "Cancelar",
+    },
+  },
+
+  accountPrivacyPasswordNewPassword: {
+    title: "Contraseña",
+    currentPassword: "Contraseña actual",
+    newPassword: "Nueva contraseña",
+    confirmPassword: "Confirmar contraseña",
+    placeholders: {
+      currentPassword: "Ingresa la contraseña actual",
+      newPassword: "Ingresa una nueva contraseña",
+      confirmPassword: "Confirma la nueva contraseña",
+    },
+    button: {
+      send: "Enviar",
+      sending: "Enviando...",
+    },
+  },
+
+  privacy: {
+    title: "Privacidad",
+    whereYouAppear: "Dónde apareces",
+    profile: "Perfil",
+    items: "Artículos",
+    outfits: "Outfits",
+    lookbooks: "Lookbooks",
+    whoCanSee: "Quién puede ver",
+    onlyYou: "Solo tú",
+    everyone: "Todos",
+    followers: "Seguidores",
+  },
+
+  language: {
+    title: "Idioma",
+    selectPrompt: "Selecciona tu idioma preferido",
+  },
+
+  blocked: {
+    title: "Bloqueados",
+    sectionTitle: "Perfil bloqueado",
+    unblock: "Desbloquear",
+    unblockConfirmTitle: "¿Desbloquear a {{name}}?",
+    unblockConfirmDesc: "Podrán encontrar tu perfil y seguirte nuevamente.",
+    yesUnblock: "Sí, desbloquear",
+    cancel: "Cancelar",
+    emptyTitle: "No hay usuarios bloqueados",
+    emptyDesc: "Los usuarios que bloquees aparecerán aquí",
+  },
+
+  feedback: {
+    title: "Comentarios y ayuda",
+    heading: "¿Olvidamos algo?",
+    subHeading: "Estamos aquí para ayudarte. Contáctanos si necesitas algo.",
+    form: {
+      title: "Título",
+      titlePlaceholder: "Ingresa un título",
+      description: "Descripción",
+      descriptionPlaceholder: "Cuéntanos más sobre tu comentario...",
+    },
+    send: "Enviar",
+    sending: "Enviando...",
+  },
+
+  share: "Compartir",
+  privacySettings: "Privacidad y ajustes",
+  help: "Ayuda",
+  rateApp: "Calificar Rai",
+  shareProfile: "Compartir perfil",
+  logout: "Cerrar sesión",
+  myCommunity: "Mi comunidad",
+  canvasIcon: "Lienzo",
+  wishlistIcon: "Lista de deseos",
+  dressMeIcon: "Vísteme",
+  analytics: "Analítica",
+  filters: "Filtros",
+  brand: "Marca",
+  season: "Temporada",
+  style: "Estilo",
+  followers: "seguidores",
+  following: "Siguiendo",
+
+  greeting: "Hola, {{name}} !",
+  subtitle: "Explora tu guardarropa",
+  searchPlaceholder: "Buscar",
+  tabs: {
+    items: "Prendas",
+    outfit: "Conjuntos",
+    lookbooks: "Lookbooks",
+  },
+
+  noItemsAvailable: "No hay artículos disponibles",
+  create: "Crear",
+  save: "Guardar",
+  saving: "Guardando...",
+  lookName: "Nombre del look",
+
+  hey: "Hola, {{name}} !",
+  exploreCommunity: "Explora tu comunidad",
+  follow: "+ Seguir",
+  following: "✓ Siguiendo",
+  tapToReact: "Toca para reaccionar",
+  report: "Reportar",
+  reporting: "Reportando...",
+  reportPrompt: "¿Por qué estás reportando esto?",
+  internalError: "¡Error interno o de Internet!",
+  noPosts: "¡Aún no hay publicaciones!",
+  logoutFailed: "Error al cerrar sesión. Inténtalo de nuevo.",
+
+  bottomTabs: {
+    wardrobe: "Guardarropa",
+    community: "Comunidad",
+    planner: "Planificador",
+    account: "Cuenta",
+  },
+
+  centralModal: {
+    addItem: "Agregar artículo",
+    createOutfit: "Crear outfit",
+    createLookbook: "Crear lookbook",
+  },
+
+  modal: {
+    cancel: "Cancelar",
+  },
+
+  addItem: {
+    title: "Agregar artículo",
+    errorMessage: "Falta uno o más campos",
+    addProfilePhoto: "Agregar foto de perfil",
+    photoUploaded: "Foto subida correctamente",
+    tapCamera: "Toca la cámara para tomar una foto",
+    uploadFromGallery: "Subir desde galería",
+    titleLabel: "Título",
+    titlePlaceholder: "Ingresa un título",
+    brandLabel: "Marca",
+    brandPlaceholder: "Ingresa una marca",
+    category: "Categoría",
+    loadingCategories: "Cargando categorías...",
+    failedCategories: "Error al cargar categorías",
+    material: "Material",
+    loadingMaterials: "Cargando materiales...",
+    failedMaterials: "Error al cargar materiales",
+    colors: "Colores",
+    season: "Temporada",
+    style: "Estilo",
+    apply: "Aplicar",
+    addItem: "Agregar artículos",
+  },
+
+  canvas: {
+    title: "Lienzo",
+    button: "Agregar artículos",
+  },
+
+  setOutfit: {
+    title: "Configurar outfit",
+    titleLabel: "Título",
+    seasonLabel: "Temporada",
+    styleLabel: "Estilo",
+    placeholderTitle: "Ingresa un título",
+    photoUploaded: "Foto subida correctamente",
+    saveButton: "Guardar",
+  },
+
+  saveOutfit: {
+    savedOutfit: "Outfit guardado",
+    outfitCreated: "Outfit creado",
+    title: "Título",
+    season: "Temporada",
+    style: "Estilo",
+    addToLookbook: "Agregar a lookbook",
+    addToCalendar: "Agregar al calendario",
+    outfitSuccess: "Evento creado correctamente",
+    cancel: "Cancelar",
+    createNewLookbook: "Crear nuevo lookbook",
+  },
+
+  createLookbook: {
+    nameFolder: "Nombre de la carpeta",
+    titlePlaceholder: "¡Tu estilo, tu título!",
+    save: "Guardar",
+    cancel: "Cancelar",
+    saveError: "No se pudo crear el lookbook",
+  },
+
+  calendar: {
+    button: "Agregar al calendario",
+  },
+
+  timePicker: {
+    enterTime: "Ingresar hora",
+    hour: "Hora",
+    minute: "Minuto",
+    cancel: "Cancelar",
+    ok: "OK",
+  },
+
+  community: {
+    myCommunity: "Mi comunidad",
+    suggested: "Sugeridos",
+    following: "Siguiendo",
+    followers: "Seguidores",
+    loading: "Cargando",
+  },
+
+  wishlist: {
+    title: "Lista de deseos",
+    addExistingTitle: "Agregar a lista existente",
+    chooseExisting: "Elige una lista existente",
+    save: "Guardar",
+    saving: "Guardando...",
+    cancel: "Cancelar",
+    loadError: "Error al cargar la lista",
+  },
+
+  addOptions: {
+    clickPhoto: "Tomar foto",
+    uploadGallery: "Subir desde galería",
+    createFolder: "Crear carpeta",
+  },
+
+  selectFolder: {
+    addExistingWishlist: "Agregar a lista existente",
+    createNewWishlist: "Crear nueva lista",
+    cancel: "Cancelar",
+  },
+
+  dressMe: {
+    title: "Vísteme",
+    items2: "2 artículos",
+    items3: "3 artículos",
+    items4: "4 artículos",
+    selectAtLeastOne: "Selecciona al menos un artículo",
+    confirm: "Confirmar",
+    save: "Guardar",
+    savedSuccessfully: "¡Guardado con éxito!",
+    error: "Algo salió mal",
+    tryAgain: "Intentar de nuevo",
+    fullBody: "Agregar cuerpo completo",
+    footwear: "Agregar calzado",
+    tops: "Agregar tops",
+    bottoms: "Agregar pantalones",
+    outwear: "Agregar abrigo",
+    generate: "Generar",
+  },
+
+  filtersSheet: {
+    title: "Filtros",
+    reset: "Restablecer",
+    brand: "Marca",
+    season: "Temporada",
+    style: "Estilo",
+    apply: "Aplicar",
+    failedToLoadStyles: "Error al cargar estilos",
+    seasons: {
+      Summer: "Verano",
+      Winter: "Invierno",
+      Spring: "Primavera",
+      Autumn: "Otoño",
+    },
+  },
+
+  styleSelectionModal: {
+    title: "Elige tu estilo",
+    selectItems: "Seleccionar artículos",
+    selectAtLeastOne: "Selecciona al menos 1 estilo",
+    style: "Estilo",
+    inputPlaceholder: "¡Tu look, tu etiqueta!",
+    save: "Guardar",
+    cancel: "Cancelar",
+    defaultSelectedItems: ["Casual", "Party"],
+    styleOptions: {
+      Casual: "Casual",
+      Office: "Oficina",
+      Home: "Casa",
+      Party: "Fiesta",
+      Summer: "Verano",
+      Fall: "Otoño",
+    },
+    errors: {
+      required: "Este campo es obligatorio",
+      invalid: "Formato inválido",
+    },
+  },
+
+  notifications: {
+    title: "Notificaciones",
+    userUpload: "{{user}} ha subido un nuevo outfit",
+    brand: "Nueva actualización de marca",
+    reminder: "Recordatorio de evento",
+    system: "Notificación del sistema",
+    someone: "Alguien",
+    hoursAgo: "h atrás",
+    noNotifications: "Aún no hay notificaciones",
+  },
+
+  analyticsScreen: {
+    header: "Estadísticas del usuario",
+    wardrobeUsage: "Uso del guardarropa",
+    wardrobeUsageInfo: "Estás usando el {{usage}}% de tu guardarropa",
+    mostWornItems: "Artículos más usados",
+    noImage: "Sin imagen",
+    untitled: "Sin título",
+    error: "¡Error interno o de Internet!",
+    sliderMin: "1",
+    sliderMax: "100%",
+  },
+};
+
+export default es;

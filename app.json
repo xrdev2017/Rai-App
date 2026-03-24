@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "Rai",
+    "slug": "Rai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": null,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.shovon12345.Rai",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "userInterfaceStyle": "automatic"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff",
+        "backgroundImage": "./assets/adaptive-icon.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.shovon12345.Rai",
+      "userInterfaceStyle": "automatic",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      "expo-asset",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them.",
+          "cameraPermission": "The app accesses your camera to let you take photos."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow to access your camera",
+          "microphonePermission": "Allow  to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ],
+      "expo-media-library"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6b0da193-bdd7-415d-b565-c2ce53cc1dd6"
+      }
+    }
+  }
+}
