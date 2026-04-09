@@ -1,14 +1,14 @@
 const fr = {
   onboarding: {
-    title1: "Commencez avec un style plus intelligent",
+    title1: "Découvrez votre style personnel",
     subtitle1:
-      "Organisez votre garde-robe, découvrez des tenues créées par IA et achetez les dernières tendances dans une seule application",
-    title2: "Votre styliste et personal shopper IA",
+      "Créez la garde-robe de vos rêves à l'aide de notre canevas interactif, de nos lookboards et de nos moodboards pour planifier vos tenues quotidiennes.",
+    title2: "Votre styliste IA privé",
     subtitle2:
-      "Des idées de tenues et un shopping intelligent faits pour vous.",
-    title3: "Stylisez, achetez, partagez",
+      "Laissez l'IA organiser votre prochain look et utilisez l'outil d'essai virtuel pour voir instantanément la coupe parfaite.",
+    title3: "Connectez-vous avec des créateurs de style",
     subtitle3:
-      "Planifiez des tenues, achetez de nouveaux articles et connectez-vous à la communauté stylée.",
+      "Partagez vos tenues, inspirez-vous du flux de la communauté et enregistrez vos pièces préférées dans votre liste de souhaits privée.",
     next: "Suivant",
     getStarted: "Commencer",
     login: "Connexion",
@@ -278,6 +278,7 @@ const fr = {
     wardrobe: "Garde-robe",
     community: "Communauté",
     planner: "Agenda",
+    styleHub: "Centre de style",
     account: "Compte",
   },
 
@@ -471,6 +472,100 @@ const fr = {
     error: "Erreur interne ou connexion !",
     sliderMin: "1",
     sliderMax: "100%",
+  },
+
+  aiStylist: {
+    tabs: {
+      aiStylist: "Styliste IA",
+      virtualTryOn: "Essai Virtuel",
+    },
+    aiStylistTab: {
+      titleLine1: "Que devrais-je porter",
+      titleLine2: "aujourd'hui ?",
+      description: "Décrivez n'importe quoi — Rai le stylisera",
+      placeholder: "Tenue tout en noir pour un vernissage...",
+      quickIdeas: "QUICK IDEAS",
+      occasion: "Occasion",
+      mood: "Humeur",
+      weather: "Météo",
+      usageLimit: "Limite d'utilisation",
+      generationsLeft: "{{count}}/3 générations restantes aujourd'hui",
+      upgrade: "Passer à l'illimité",
+      generate: "Générer la tenue",
+      occasions: {
+        School: "École",
+        Date: "Rendez-vous",
+        Party: "Fête",
+        Work: "Travail",
+        Gym: "Sport",
+        Brunch: "Brunch",
+        Travel: "Voyage",
+        Wedding: "Mariage",
+      },
+      moods: {
+        Clean: "Propre",
+        Edgy: "Audacieux",
+        Relaxed: "Décontracté",
+        Bold: "Affirmé",
+        Vintage: "Vintage",
+        Romantic: "Romantique",
+        Sporty: "Sportif",
+      },
+      weatherOptions: {
+        Sunny: "Ensoleillé",
+        Rainy: "Pluvieux",
+        Cold: "Froid",
+        Snowy: "Neigeux",
+        Humid: "Humide",
+        Windy: "Venteux",
+      },
+    },
+    virtualTryOnTab: {
+      outfitSection: "1. La Tenue",
+      outfitIdPlaceholder: "Entrer l'ID de la tenue",
+      addButton: "Ajouter",
+      or: "OU",
+      selectedItem: "Article sélectionné",
+      tapToReplace: "Appuyer pour remplacer",
+      selectFromWardrobe: "Choisir dans la garde-robe",
+      photoSection: "2. Votre Photo",
+      uploadFullBody: "Télécharger une photo plein pied",
+      lightingAdvice: "Assurez un bon éclairage pour de meilleurs résultats",
+      selectFromLibrary: "Choisir dans la bibliothèque",
+      tryButton: "Essayer cette tenue sur moi",
+    },
+  },
+  subscription: {
+    unlockTitle: "Débloquez un style illimité",
+    unlockDescription:
+      "Améliorez votre look quotidien avec plus de générations et d'essais virtuels.",
+    monthly: "Mensuel",
+    yearly: "Annuel",
+    save25: "ÉCONOMISEZ 25%",
+    purchaseNow: "Acheter maintenant",
+    footerNote:
+      "Gratuit pendant 3 jours, puis facturé automatiquement sauf annulation.",
+    cancelAnytime: "Annulation à tout moment",
+    privacyPolicy: "Politique de confidentialité",
+    currentBadge: "ACTUAL",
+    recommendedBadge: "RECOMMANDÉ",
+    freePlanName: "Plan gratuit",
+    basicPlanName: "Rai Basique",
+    proPlanName: "Rai Pro",
+    plans: {
+      free: {
+        feature1: "3 générations IA",
+        feature2: "3 VTO",
+      },
+      basic: {
+        feature1: "30 générations IA",
+        feature2: "Passez à Pro pour débloquer le VTO",
+      },
+      pro: {
+        feature1: "60 générations IA",
+        feature2: "30 essais virtuels",
+      },
+    },
   },
 };
 

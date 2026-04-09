@@ -1,0 +1,1206 @@
+Initialized native services in: /Users/dishantsavaliya/.gradle/native
+Initialized jansi services in: /Users/dishantsavaliya/.gradle/native
+Found daemon DaemonInfo{pid=2511, address=[c652949b-49d5-44de-99ea-87ad0b8585e6 port:49262, addresses:[/127.0.0.1]], state=Idle, lastBusy=1775573025931, context=DefaultDaemonContext[uid=91965106-6e18-4c1b-b864-c72eeb50582a,javaHome=/Users/dishantsavaliya/.antigravity/extensions/redhat.java-1.53.0-darwin-arm64/jre/21.0.10-macosx-aarch64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=2511,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=512m, -Xmx4096m, -Dfile.encoding=UTF-8, -Duser.country=IN, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=91965106-6e18-4c1b-b864-c72eeb50582a,javaHome=/Users/dishantsavaliya/.antigravity/extensions/redhat.java-1.53.0-darwin-arm64/jre/21.0.10-macosx-aarch64,javaVersion=21,javaVendor=Eclipse Adoptium,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=2511,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+Found daemon DaemonInfo{pid=2539, address=[ba32844b-d19c-48a3-b6b1-493e5910e7e8 port:49267, addresses:[/127.0.0.1]], state=Idle, lastBusy=1775571769701, context=DefaultDaemonContext[uid=e77a9fc7-46df-47ab-ab69-0542dc60daea,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=2539,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+JVM is incompatible.
+Wanted: DaemonRequestContext{jvmCriteria=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=512m, -Xmx4096m, -Dfile.encoding=UTF-8, -Duser.country=IN, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=e77a9fc7-46df-47ab-ab69-0542dc60daea,javaHome=/Applications/Android Studio.app/Contents/jbr/Contents/Home,javaVersion=21,javaVendor=JetBrains s.r.o.,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=2539,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+Found daemon DaemonInfo{pid=13348, address=[53c305bc-629a-4550-b873-3b1155d5e367 port:50004, addresses:[/127.0.0.1]], state=Idle, lastBusy=1775573290038, context=DefaultDaemonContext[uid=cd28f201-e019-4743-a936-2f873adfdda0,javaHome=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home,javaVersion=17,javaVendor=Azul Systems, Inc.,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=13348,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+At least one daemon option is different.
+Wanted: DaemonRequestContext{jvmCriteria=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home (no JDK specified, using current Java home), daemonOpts=[-XX:MaxMetaspaceSize=512m, -Xmx4096m, -Dfile.encoding=UTF-8, -Duser.country=IN, -Duser.language=en, -Duser.variant], applyInstrumentationAgent=true, nativeServicesMode=ENABLED, priority=NORMAL}
+Actual: DefaultDaemonContext[uid=cd28f201-e019-4743-a936-2f873adfdda0,javaHome=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home,javaVersion=17,javaVendor=Azul Systems, Inc.,daemonRegistryDir=/Users/dishantsavaliya/.gradle/daemon,pid=13348,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,nativeServicesMode=ENABLED,daemonOpts=-XX:MaxMetaspaceSize=512m,-Xmx2048m,-Dfile.encoding=UTF-8,-Duser.country=IN,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 23012). The daemon log file: /Users/dishantsavaliya/.gradle/daemon/8.13/daemon-23012.out.log
+Starting 2nd build in daemon [uptime: 25 mins 48.566 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 4 GiB, non-heap usage: 28% of 512 MiB]
+Using 8 worker leases.
+Now considering [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })
+Successfully started process 'command 'node''
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('expo-modules-autolinking/package.json', { paths: [require.resolve('expo/package.json')] })
+Successfully started process 'command 'node''
+Now considering [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin] as hierarchies to watch
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '0.5.0']
+Invalidating in-memory cache of /Users/dishantsavaliya/.gradle/caches/journal-1/file-access.bin
+Invalidating in-memory cache of /Users/dishantsavaliya/.gradle/caches/8.13/fileHashes/fileHashes.bin
+Invalidating in-memory cache of /Users/dishantsavaliya/.gradle/caches/8.13/fileHashes/resourceHashesCache.bin
+Now considering [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin] as hierarchies to watch
+
+> Configure project :gradle-plugin
+Evaluating project ':gradle-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.0.21', apply: false]
+
+> Configure project :gradle-plugin:react-native-gradle-plugin
+Evaluating project ':gradle-plugin:react-native-gradle-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin/react-native-gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.0.21']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:settings-plugin
+Evaluating project ':gradle-plugin:settings-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin/settings-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.0.21']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:shared
+Evaluating project ':gradle-plugin:shared' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin/shared/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.0.21']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:shared-testutil
+Evaluating project ':gradle-plugin:shared-testutil' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin/shared-testutil/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.0.21']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Resolved plugin [id: 'com.facebook.react.settings']
+
+> Configure project :expo-gradle-plugin
+Evaluating project ':expo-gradle-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '1.9.24', apply: false]
+Resolved plugin [id: 'java-gradle-plugin']
+
+> Configure project :expo-gradle-plugin:expo-autolinking-plugin
+Evaluating project ':expo-gradle-plugin:expo-autolinking-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin/expo-autolinking-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :expo-gradle-plugin:expo-autolinking-plugin-shared
+Evaluating project ':expo-gradle-plugin:expo-autolinking-plugin-shared' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin/expo-autolinking-plugin-shared/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'org.jetbrains.kotlin.plugin.serialization', version: '1.9.24']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :expo-gradle-plugin:expo-autolinking-settings-plugin
+Evaluating project ':expo-gradle-plugin:expo-autolinking-settings-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin/expo-autolinking-settings-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Resolved plugin [id: 'expo-autolinking-settings']
+Starting process 'command '/usr/libexec/java_home''. Working directory: /Users/dishantsavaliya/.gradle/daemon/8.13 Command: /usr/libexec/java_home -V
+Successfully started process 'command '/usr/libexec/java_home''
+Resolve mutations for :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 4,5,main]) started.
+:gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+:gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle-plugin:shared:compileKotlin (Thread[Execution worker,5,main]) started.
+:gradle-plugin:shared:compileKotlin (Thread[Execution worker,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin' as it is up-to-date.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava NO-SOURCE
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:shared:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:shared:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle-plugin:shared:compileJava (Thread[Execution worker,5,main]) started.
+:gradle-plugin:shared:compileJava (Thread[Execution worker,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:processResources (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:shared:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:shared:processResources (Thread[Execution worker,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources NO-SOURCE
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin-shared:processResources' as it has no source files and no previous output files.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:classes (Thread[Execution worker Thread 4,5,main]) started.
+:gradle-plugin:shared:processResources (Thread[Execution worker,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:classes (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:classes UP-TO-DATE
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin-shared:classes' as it has no actions.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin-shared:jar (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin-shared:jar (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+Skipping task ':gradle-plugin:shared:processResources' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:shared:classes (Thread[Execution worker,5,main]) started.
+:gradle-plugin:shared:classes (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+Skipping task ':gradle-plugin:shared:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:shared:jar (Thread[Execution worker,5,main]) started.
+:gradle-plugin:shared:jar (Thread[Execution worker,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:jar UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin-shared:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin-shared:jar' as it is up-to-date.
+work action resolve expo-autolinking-plugin-shared.jar (project :expo-gradle-plugin:expo-autolinking-plugin-shared) (Thread[Execution worker Thread 4,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:shared:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:shared:jar' as it is up-to-date.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+work action resolve shared.jar (project :gradle-plugin:shared) (Thread[Execution worker,5,main]) started.
+Resolve mutations for :gradle-plugin:settings-plugin:compileKotlin (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:compileKotlin (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:settings-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:compileJava (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:compileJava (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:settings-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:settings-plugin:pluginDescriptors (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:pluginDescriptors (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:processResources (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:processResources (Thread[Execution worker,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:processResources' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:classes (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:classes (Thread[Execution worker,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+Skipping task ':gradle-plugin:settings-plugin:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:settings-plugin:jar (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:jar (Thread[Execution worker,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava NO-SOURCE
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:processResources (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-settings-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:processResources' as it is up-to-date.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:classes (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:classes (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:classes UP-TO-DATE
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:classes' as it has no actions.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-settings-plugin:jar (Thread[Execution worker Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-settings-plugin:jar (Thread[Execution worker Thread 4,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:jar' as it is up-to-date.
+
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:jar UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-settings-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-settings-plugin:jar' as it is up-to-date.
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('expo-modules-autolinking/package.json', { paths: [require.resolve('expo/package.json')] })
+Successfully started process 'command 'node''
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --no-warnings --eval require(require.resolve('expo-modules-autolinking', { paths: [require.resolve('expo/package.json')] }))(process.argv.slice(1)) -- resolve --platform android --json
+Successfully started process 'command 'node''
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('react-native/package.json')
+Successfully started process 'command 'node''
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('@react-native/gradle-plugin/package.json', { paths: [require.resolve('react-native/package.json')] })
+Successfully started process 'command 'node''
+Settings evaluated using settings file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android/settings.gradle'.
+Now considering [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin] as hierarchies to watch
+Now considering [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android] as hierarchies to watch
+Projects loaded. Root project using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android/build.gradle'.
+Included projects: [root project 'Rai', project ':app', project ':expo', project ':expo-constants', project ':expo-dev-client', project ':expo-dev-launcher', project ':expo-dev-menu', project ':expo-dev-menu-interface', project ':expo-image-loader', project ':expo-json-utils', project ':expo-manifests', project ':expo-modules-core', project ':expo-updates-interface', project ':invertase_react-native-apple-authentication', project ':react-native-async-storage_async-storage', project ':react-native-clipboard_clipboard', project ':react-native-edge-to-edge', project ':react-native-gesture-handler', project ':react-native-google-signin_google-signin', project ':react-native-iap', project ':react-native-localize', project ':react-native-nitro-modules', project ':react-native-pager-view', project ':react-native-reanimated', project ':react-native-safe-area-context', project ':react-native-screens', project ':react-native-share', project ':react-native-svg', project ':react-native-view-shot']
+Registering project ':expo-gradle-plugin' in composite build. Will substitute for module ':expo-gradle-plugin'.
+Registering project ':expo-gradle-plugin:expo-autolinking-plugin' in composite build. Will substitute for module 'expo.modules:expo-autolinking-plugin'.
+Registering project ':expo-gradle-plugin:expo-autolinking-plugin-shared' in composite build. Will substitute for module 'expo.modules:expo-autolinking-plugin-shared'.
+Registering project ':expo-gradle-plugin:expo-autolinking-settings-plugin' in composite build. Will substitute for module 'expo.modules:expo-autolinking-settings-plugin'.
+
+> Configure project :expo-dev-launcher-gradle-plugin
+Evaluating project ':expo-dev-launcher-gradle-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '1.9.24']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Registering project ':expo-dev-launcher-gradle-plugin' in composite build. Will substitute for module 'expo.modules:expo-dev-launcher-gradle-plugin'.
+
+> Configure project :expo-module-gradle-plugin
+Evaluating project ':expo-module-gradle-plugin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '1.9.24']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle82 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Registering project ':expo-module-gradle-plugin' in composite build. Will substitute for module 'expo.modules:expo-module-gradle-plugin'.
+Registering project ':gradle-plugin' in composite build. Will substitute for module ':gradle-plugin-root'.
+Registering project ':gradle-plugin:react-native-gradle-plugin' in composite build. Will substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Registering project ':gradle-plugin:settings-plugin' in composite build. Will substitute for module 'com.facebook.react:settings-plugin'.
+Registering project ':gradle-plugin:shared' in composite build. Will substitute for module 'com.facebook.react:shared'.
+Registering project ':gradle-plugin:shared-testutil' in composite build. Will substitute for module 'com.facebook.react:shared-testutil'.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 3,5,main]) started.
+:expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+
+> Task :expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':expo-dev-launcher-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+work action resolve expo-autolinking-plugin-shared.jar (project :expo-gradle-plugin:expo-autolinking-plugin-shared) (Thread[Execution worker Thread 6,5,main]) started.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 3,5,main]) started.
+:expo-dev-launcher-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 5,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+
+> Task :expo-dev-launcher-gradle-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':expo-dev-launcher-gradle-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-dev-launcher-gradle-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:processResources (Thread[Execution worker Thread 5,5,main]) started.
+
+> Task :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors
+Caching disabled for task ':expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' because:
+  Build cache is disabled
+Task ':expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :expo-module-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 3,5,main]) started.
+:expo-dev-launcher-gradle-plugin:processResources (Thread[Execution worker Thread 5,5,main]) started.
+:expo-module-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-module-gradle-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':expo-module-gradle-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-module-gradle-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :expo-module-gradle-plugin:processResources (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-dev-launcher-gradle-plugin:processResources UP-TO-DATE
+Caching disabled for task ':expo-dev-launcher-gradle-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-dev-launcher-gradle-plugin:processResources' as it is up-to-date.
+:expo-module-gradle-plugin:processResources (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-module-gradle-plugin:processResources UP-TO-DATE
+Caching disabled for task ':expo-module-gradle-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-module-gradle-plugin:processResources' as it is up-to-date.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:compileKotlin' as it is up-to-date.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileJava NO-SOURCE
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:compileJava' as it has no source files and no previous output files.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors' as it is up-to-date.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:processResources UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:processResources' as it is up-to-date.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:classes UP-TO-DATE
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:classes' as it has no actions.
+
+> Task :expo-gradle-plugin:expo-autolinking-plugin:jar UP-TO-DATE
+Caching disabled for task ':expo-gradle-plugin:expo-autolinking-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-gradle-plugin:expo-autolinking-plugin:jar' as it is up-to-date.
+
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:react-native-gradle-plugin:compileKotlin' as it is up-to-date.
+other build task :gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[Execution worker,5,main]) started.
+other build task :gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:react-native-gradle-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+other build task :gradle-plugin:react-native-gradle-plugin:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+other build task :gradle-plugin:react-native-gradle-plugin:compileJava (Thread[Execution worker Thread 5,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:processResources' as it is up-to-date.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+Skipping task ':gradle-plugin:react-native-gradle-plugin:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:jar' as it is up-to-date.
+work action resolve main (project :gradle-plugin:react-native-gradle-plugin) (Thread[Execution worker Thread 7,5,main]) started.
+work action resolve main (project :gradle-plugin:react-native-gradle-plugin) (Thread[Execution worker Thread 7,5,main]) started.
+Resolve mutations for :expo-module-gradle-plugin:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+work action resolve main (project :gradle-plugin:react-native-gradle-plugin) (Thread[Execution worker Thread 4,5,main]) started.
+work action resolve main (project :gradle-plugin:react-native-gradle-plugin) (Thread[Execution worker Thread 4,5,main]) started.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+:expo-module-gradle-plugin:compileKotlin (Thread[Execution worker Thread 4,5,main]) started.
+:expo-dev-launcher-gradle-plugin:compileKotlin (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :expo-dev-launcher-gradle-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':expo-dev-launcher-gradle-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':expo-dev-launcher-gradle-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:compileJava (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :expo-module-gradle-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':expo-module-gradle-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':expo-module-gradle-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :expo-module-gradle-plugin:compileJava (Thread[Execution worker Thread 4,5,main]) started.
+:expo-dev-launcher-gradle-plugin:compileJava (Thread[Execution worker Thread 2,5,main]) started.
+:expo-module-gradle-plugin:compileJava (Thread[Execution worker Thread 5,5,main]) started.
+
+> Task :expo-dev-launcher-gradle-plugin:compileJava NO-SOURCE
+Skipping task ':expo-dev-launcher-gradle-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:classes (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :expo-dev-launcher-gradle-plugin:classes UP-TO-DATE
+Skipping task ':expo-dev-launcher-gradle-plugin:classes' as it has no actions.
+
+> Task :expo-module-gradle-plugin:compileJava NO-SOURCE
+Skipping task ':expo-module-gradle-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :expo-module-gradle-plugin:classes (Thread[Execution worker Thread 3,5,main]) started.
+:expo-module-gradle-plugin:classes (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-module-gradle-plugin:classes UP-TO-DATE
+Skipping task ':expo-module-gradle-plugin:classes' as it has no actions.
+Resolve mutations for :expo-module-gradle-plugin:jar (Thread[Execution worker Thread 3,5,main]) started.
+:expo-module-gradle-plugin:jar (Thread[Execution worker Thread 3,5,main]) started.
+
+> Task :expo-dev-launcher-gradle-plugin:jar UP-TO-DATE
+Caching disabled for task ':expo-dev-launcher-gradle-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-dev-launcher-gradle-plugin:jar' as it is up-to-date.
+
+> Task :expo-module-gradle-plugin:jar UP-TO-DATE
+Caching disabled for task ':expo-module-gradle-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':expo-module-gradle-plugin:jar' as it is up-to-date.
+
+> Configure project :app
+Evaluating project ':app' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android/app/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+ ℹ️  [33mApplying gradle plugin[0m '[32mexpo-dev-launcher-gradle-plugin[0m'
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :
+Evaluating root project 'Rai' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android/build.gradle'.
+Found project 'project :expo-gradle-plugin:expo-autolinking-plugin' as substitute for module 'expo.modules:expo-autolinking-plugin'.
+Found project 'project :expo-dev-launcher-gradle-plugin' as substitute for module 'expo.modules:expo-dev-launcher-gradle-plugin'.
+Found project 'project :expo-module-gradle-plugin' as substitute for module 'expo.modules:expo-module-gradle-plugin'.
+Found project 'project :gradle-plugin:react-native-gradle-plugin' as substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Found project 'project :expo-gradle-plugin:expo-autolinking-plugin-shared' as substitute for module 'expo.modules:expo-autolinking-plugin-shared'.
+Found project 'project :gradle-plugin:react-native-gradle-plugin' as substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Found project 'project :gradle-plugin:react-native-gradle-plugin' as substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Found project 'project :expo-gradle-plugin:expo-autolinking-plugin-shared' as substitute for module 'expo.modules:expo-autolinking-plugin-shared'.
+Ignoring listeners of task graph ready event, as this build (:expo-gradle-plugin) has already executed work.
+Ignoring listeners of task graph ready event, as this build (:gradle-plugin) has already executed work.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 3,5,main]) started.
+:expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 3,5,main]) started.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 4,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:compileKotlin (Thread[included builds Thread 2,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[included builds Thread 4,5,main]) started.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[included builds Thread 4,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[included builds Thread 4,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:compileJava (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:compileJava (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:processResources (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:processResources (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:classes (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:classes (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :expo-gradle-plugin:expo-autolinking-plugin:jar (Thread[included builds Thread 2,5,main]) started.
+:expo-gradle-plugin:expo-autolinking-plugin:jar (Thread[included builds Thread 2,5,main]) started.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:compileJava (Thread[included builds Thread 4,5,main]) started.
+:expo-dev-launcher-gradle-plugin:classes (Thread[included builds,5,main]) started.
+Resolve mutations for :expo-dev-launcher-gradle-plugin:jar (Thread[included builds,5,main]) started.
+:expo-dev-launcher-gradle-plugin:jar (Thread[included builds,5,main]) started.
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('react-native/package.json')
+Successfully started process 'command 'node''
+[32m[ExpoRootProject][0m Using the following versions:
+  - buildTools:  [32m35.0.0[0m
+  - minSdk:      [32m24[0m
+  - compileSdk:  [32m35[0m
+  - targetSdk:   [32m35[0m
+  - ndk:         [32m27.1.12297006[0m
+  - kotlin:      [32m2.1.10[0m
+  - ksp:         [32m2.1.10-1.0.31[0m
+
+> Configure project :expo-constants
+Evaluating project ':expo-constants' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-constants/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-constants/android Command: node -e console.log(require('path').dirname(require.resolve('expo-constants/package.json')));
+Successfully started process 'command 'node''
+
+> Configure project :expo-dev-client
+Evaluating project ':expo-dev-client' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-client/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-dev-launcher
+Evaluating project ':expo-dev-launcher' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-dev-menu
+Evaluating project ':expo-dev-menu' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-menu/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-dev-menu-interface
+Evaluating project ':expo-dev-menu-interface' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-menu-interface/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-image-loader
+Evaluating project ':expo-image-loader' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-image-loader/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-json-utils
+Evaluating project ':expo-json-utils' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-json-utils/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-manifests
+Evaluating project ':expo-manifests' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-manifests/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo-modules-core
+Evaluating project ':expo-modules-core' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+Starting process 'command 'node''. Working directory: /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android Command: node --print require.resolve('react-native/package.json')
+Successfully started process 'command 'node''
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :expo-updates-interface
+Evaluating project ':expo-updates-interface' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-updates-interface/android/build.gradle'.
+Resolved plugin [id: 'com.android.library']
+Resolved plugin [id: 'expo-module-gradle-plugin']
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :expo
+Evaluating project ':expo' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+Using expo modules
+  - [32mexpo-constants[0m (17.1.8)
+  - [32mexpo-dev-client[0m (5.2.4)
+  - [32mexpo-dev-launcher[0m (5.1.16)
+  - [32mexpo-dev-menu[0m (6.1.14)
+  - [32mexpo-dev-menu-interface[0m (1.10.0)
+  - [32mexpo-image-loader[0m (5.1.0)
+  - [32mexpo-json-utils[0m (0.15.0)
+  - [32mexpo-manifests[0m (0.16.6)
+  - [32mexpo-modules-core[0m (2.5.0)
+  - [32mexpo-updates-interface[0m (1.1.0)
+  - [33m[📦][0m [32mexpo-asset[0m (11.1.7)
+  - [33m[📦][0m [32mexpo-camera[0m (16.1.11)
+  - [33m[📦][0m [32mexpo-file-system[0m (19.0.21)
+  - [33m[📦][0m [32mexpo-font[0m (13.3.2)
+  - [33m[📦][0m [32mexpo-image-picker[0m (16.1.4)
+  - [33m[📦][0m [32mexpo-keep-awake[0m (14.1.4)
+  - [33m[📦][0m [32mexpo-media-library[0m (17.1.7)
+  - [33m[📦][0m [32mexpo-splash-screen[0m (0.30.10)
+
+
+> Configure project :invertase_react-native-apple-authentication
+Evaluating project ':invertase_react-native-apple-authentication' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@invertase/react-native-apple-authentication/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+:invertase_react-native-apple-authentication:reactNativeAndroidRoot /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native/android
+
+> Configure project :react-native-async-storage_async-storage
+Evaluating project ':react-native-async-storage_async-storage' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native-async-storage/async-storage/android/build.gradle'.
+Using default execution profile
+[AsyncStorage] Config used: {kotlinVersion=2.1.10, kspVersion=1.9.24-1.0.20, roomVersion=2.6.1, minSdkVersion=24, targetSdkVersion=35, compileSdkVersion=35, useNextStorage=false, databaseSizeMB=6, isNewArchitectureEnabled=true, useDedicatedExecutor=false}
+
+> Configure project :react-native-clipboard_clipboard
+Evaluating project ':react-native-clipboard_clipboard' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native-clipboard/clipboard/android/build.gradle'.
+Using default execution profile
+
+> Configure project :react-native-edge-to-edge
+Evaluating project ':react-native-edge-to-edge' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-edge-to-edge/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :react-native-gesture-handler
+Evaluating project ':react-native-gesture-handler' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-gesture-handler/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :react-native-google-signin_google-signin
+Evaluating project ':react-native-google-signin_google-signin' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native-google-signin/google-signin/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :react-native-iap
+Evaluating project ':react-native-iap' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-iap/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+[NitroModules] 🔥 NitroIap is boosted by nitro!
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :react-native-localize
+Evaluating project ':react-native-localize' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-localize/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :react-native-nitro-modules
+Evaluating project ':react-native-nitro-modules' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-nitro-modules/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+[NitroModules] 🔥 Your app is boosted by nitro modules!
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :react-native-pager-view
+Evaluating project ':react-native-pager-view' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-pager-view/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+:react-native-pager-view:reactNativeAndroidRoot /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native/android
+
+> Configure project :react-native-reanimated
+Evaluating project ':react-native-reanimated' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-reanimated/android/build.gradle'.
+Using default execution profile
+Android gradle plugin: 8.8.2
+Gradle: 8.13
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :react-native-safe-area-context
+Evaluating project ':react-native-safe-area-context' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-safe-area-context/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+
+> Configure project :react-native-screens
+Evaluating project ':react-native-screens' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-screens/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/dishantsavaliya/Library/Android/sdk
+
+> Configure project :react-native-share
+Evaluating project ':react-native-share' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-share/android/build.gradle'.
+Using default execution profile
+
+> Configure project :react-native-svg
+Evaluating project ':react-native-svg' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-svg/android/build.gradle'.
+Using default execution profile
+
+> Configure project :react-native-view-shot
+Evaluating project ':react-native-view-shot' using build file '/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/react-native-view-shot/android/build.gradle'.
+Using default execution profile
+All projects evaluated.
+Task path ':react-native-iap:configureDebugCMakeArm64-v8a' matched project ':react-native-iap'
+
+[Incubating] Problems report is available at: file:///Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Cannot locate tasks that match ':react-native-iap:configureDebugCMakeArm64-v8a' as task 'configureDebugCMakeArm64-v8a' not found in project ':react-native-iap'.
+
+* Try:
+> Run gradlew tasks to get a list of available tasks.
+> For more on name expansion, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:name_abbreviation in the Gradle documentation.
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.13/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 10s
+33 actionable tasks: 5 executed, 28 up-to-date
+Watched directory hierarchies: [/Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-core/expo-module-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-dev-launcher/expo-dev-launcher-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/expo-modules-autolinking/android/expo-gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/node_modules/@react-native/gradle-plugin, /Users/dishantsavaliya/Desktop/Project/ReactNative/xrstudio/Rai-App/android]

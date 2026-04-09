@@ -1,43 +1,44 @@
 const en = {
   onboarding: {
-    title1: "Get Started with Smarter Style",
+    title1: "Discover Your Personal Style",
     subtitle1:
-      "Organize your wardrobe, discover AI curated outfits, and shop the latest trends all in one app",
-    title2: "Your AI Stylist & Personal Shopper",
-    subtitle2: "Outfit ideas and smart shopping made just for you.",
-    title3: "Style It, Shop It, Share It",
+      "Build your dream wardrobe using our interactive canvas, lookboards, and moodboards to plan your daily outfits.",
+    title2: "Your Private AI Stylist",
+    subtitle2:
+      "Let the AI curate your next look and use the Virtual Try-On tool to see the perfect fit instantly.",
+    title3: "Connect with Style Creators",
     subtitle3:
-      "Plan outfits, shop new pieces, and connect with the style community.",
+      "Share your outfits, get inspired by the community feed, and save your favorite pieces to your private wishlist.",
     next: "Next",
     getStarted: "Get Started",
     login: "Login",
     signup: "Sign Up",
-    footer: "@2025 Rai",
+    footer: "@2025 Rai"
   },
   itemTab: {
     text1: "Hit the plus button to start adding to your wardrobe",
-    text2: "No items in your wardrobe yet so let's go",
+    text2: "No items in your wardrobe yet so let's go"
   },
   lookbookTab: {
     text1: "Catalogue your fits!",
-    text2: "Hit that plus button to create a lookbook",
+    text2: "Hit that plus button to create a lookbook"
   },
   outfitTab: {
     text1: "Fresh looks are waiting for you",
-    text2: "Hit that plus button to start styling",
+    text2: "Hit that plus button to start styling"
   },
 
   plannerScreen: {
     text1: "Hit the plus button to start adding to your planner",
-    text2: "No items in your planner yet so let's go",
+    text2: "No items in your planner yet so let's go"
   },
   outfitTab: {
     text1: "Fresh looks are waiting for you",
-    text2: "Hit that plus button to start styling",
+    text2: "Hit that plus button to start styling"
   },
 
   colorPallete: {
-    title: "Colors",
+    title: "Colors"
   },
   colors: {
     blue500: "Blue",
@@ -59,14 +60,14 @@ const en = {
     sky500: "Sky Blue",
     fuchsia500: "Fuchsia",
     slate500: "Slate",
-    rose500: "Rose",
+    rose500: "Rose"
   },
 
   seasons: {
     fall: "Fall",
     summer: "Summer",
     spring: "Spring",
-    all: "All",
+    all: "All"
   },
 
   account: {
@@ -80,7 +81,7 @@ const en = {
     rateRai: "Rate Rai",
     shareProfile: "Share Profile",
     logout: "Logout",
-    shareProfileMessage: "Check out {{username}}'s profile on Rai!",
+    shareProfileMessage: "Check out {{username}}'s profile on Rai!"
   },
 
   accountPrivacy: {
@@ -88,7 +89,7 @@ const en = {
     personalInfo: "Personal Information",
     editProfile: "Edit Profile",
     passwordPrivacy: "Password & Privacy",
-    language: "Language",
+    language: "Language"
   },
 
   accountPrivacyPersonal: {
@@ -100,7 +101,7 @@ const en = {
     gender: "Gender",
     bio: "Bio",
     location: "Location",
-    enterField: "Enter {{field}}",
+    enterField: "Enter {{field}}"
   },
 
   accountPrivacyEdit: {
@@ -125,15 +126,15 @@ const en = {
     dateOfBirth: "Date Of Birth",
     day: "DD",
     month: "MM",
-    year: "YYYY",
+    year: "YYYY"
   },
 
   gender: {
     male: "Male",
     female: "Female",
-    others: "Others",
+    others: "Others"
   },
-  
+
   select: "Select",
   reset: "Reset",
   apply: "Apply",
@@ -153,8 +154,8 @@ const en = {
     deleteAccountModal: {
       description: "Your account will be deleted within 30 days",
       confirm: "Yes, delete account",
-      cancel: "Cancel",
-    },
+      cancel: "Cancel"
+    }
   },
 
   accountPrivacyPasswordNewPassword: {
@@ -165,12 +166,12 @@ const en = {
     placeholders: {
       currentPassword: "Enter current password",
       newPassword: "Enter new password",
-      confirmPassword: "Confirm new password",
+      confirmPassword: "Confirm new password"
     },
     button: {
       send: "Send",
-      sending: "Sending...",
-    },
+      sending: "Sending..."
+    }
   },
 
   privacy: {
@@ -183,11 +184,11 @@ const en = {
     whoCanSee: "Who can see",
     onlyYou: "Only you",
     everyone: "Everyone",
-    followers: "Followers",
+    followers: "Followers"
   },
   language: {
     title: "Language",
-    selectPrompt: "Select your desired language",
+    selectPrompt: "Select your desired language"
   },
 
   blocked: {
@@ -200,7 +201,7 @@ const en = {
     yesUnblock: "Yes, Unblock",
     cancel: "Cancel",
     emptyTitle: "No Blocked Users",
-    emptyDesc: "Users you block will appear here",
+    emptyDesc: "Users you block will appear here"
   },
 
   feedback: {
@@ -212,10 +213,10 @@ const en = {
       title: "Title",
       titlePlaceholder: "Enter title",
       description: "Description",
-      descriptionPlaceholder: "Tell us more about your feedback...",
+      descriptionPlaceholder: "Tell us more about your feedback..."
     },
     send: "Send",
-    sending: "Sending...",
+    sending: "Sending..."
   },
 
   share: "Share",
@@ -245,7 +246,7 @@ const en = {
   tabs: {
     items: "Items",
     outfit: "Outfits",
-    lookbooks: "Lookbooks",
+    lookbooks: "Lookbooks"
   },
 
   noItemsAvailable: "No items available",
@@ -280,15 +281,16 @@ const en = {
     wardrobe: "Wardrobe",
     community: "Community",
     planner: "Planner",
-    account: "Account",
+    styleHub: "Style Hub",
+    account: "Account"
   },
   centralModal: {
     addItem: "Add Item",
     createOutfit: "Create an outfit",
-    createLookbook: "Create lookbook",
+    createLookbook: "Create lookbook"
   },
   modal: {
-    cancel: "Cancel",
+    cancel: "Cancel"
   },
 
   addItem: {
@@ -311,12 +313,12 @@ const en = {
     colors: "Colors",
     season: "Season",
     style: "Style",
-    apply: "Apply",
+    apply: "Apply"
   },
 
   canvas: {
     title: "Canvas",
-    button: "Add Items",
+    button: "Add Items"
   },
 
   setOutfit: {
@@ -326,7 +328,7 @@ const en = {
     styleLabel: "Style",
     placeholderTitle: "Enter Title",
     photoUploaded: "Photo is successfully uploaded",
-    saveButton: "Save",
+    saveButton: "Save"
   },
   saveOutfit: {
     savedOutfit: "Saved Outfit",
@@ -338,7 +340,7 @@ const en = {
     addToCalendar: "Add to Calendar",
     outfitSuccess: "Your event is successfully created",
     cancel: "Cancel",
-    createNewLookbook: "Create New Lookbook",
+    createNewLookbook: "Create New Lookbook"
   },
 
   createLookbook: {
@@ -346,18 +348,18 @@ const en = {
     titlePlaceholder: "Your Style, Your Title!",
     save: "Save",
     cancel: "Cancel",
-    saveError: "Add Lookbook failed. Please try again.",
+    saveError: "Add Lookbook failed. Please try again."
   },
 
   calendar: {
-    button: "Add to Calendar",
+    button: "Add to Calendar"
   },
   timePicker: {
     enterTime: "Enter Time",
     hour: "Hour",
     minute: "Minute",
     cancel: "Cancel",
-    ok: "OK",
+    ok: "OK"
   },
 
   community: {
@@ -365,7 +367,7 @@ const en = {
     suggested: "Suggested",
     following: "Following",
     followers: "Followers",
-    loading: "Loading",
+    loading: "Loading"
   },
 
   wishlist: {
@@ -375,19 +377,19 @@ const en = {
     save: "Save",
     saving: "Saving...",
     cancel: "Cancel",
-    loadError: "Failed to load wishlist",
+    loadError: "Failed to load wishlist"
   },
 
   addOptions: {
     clickPhoto: "Click Photo",
     uploadGallery: "Upload from Gallery",
-    createFolder: "Create Folder",
+    createFolder: "Create Folder"
   },
 
   selectFolder: {
     addExistingWishlist: "Add Existing Wishlist",
     createNewWishlist: "Create New Wishlist",
-    cancel: "Cancel",
+    cancel: "Cancel"
   },
 
   dressMe: {
@@ -406,7 +408,7 @@ const en = {
     tops: "Add Tops",
     bottoms: "Add Bottoms",
     outwear: "Add Outwear",
-    generate: "Generate",
+    generate: "Generate"
   },
 
   filtersSheet: {
@@ -421,8 +423,8 @@ const en = {
       Summer: "Summer",
       Winter: "Winter",
       Spring: "Spring",
-      Autumn: "Autumn",
-    },
+      Autumn: "Autumn"
+    }
   },
   styleSelectionModal: {
     title: "Choose your Style",
@@ -439,12 +441,12 @@ const en = {
       Home: "Home",
       Party: "Party",
       Summer: "Summer",
-      Fall: "Fall",
+      Fall: "Fall"
     },
     errors: {
       required: "This field is required",
-      invalid: "Invalid format",
-    },
+      invalid: "Invalid format"
+    }
   },
 
   notifications: {
@@ -455,7 +457,7 @@ const en = {
     system: "System notification",
     someone: "Someone",
     hoursAgo: "h ago",
-    noNotifications: "No notifications yet",
+    noNotifications: "No notifications yet"
   },
 
   analyticsScreen: {
@@ -467,8 +469,101 @@ const en = {
     untitled: "Untitled",
     error: "Internal or Internet issue!",
     sliderMin: "1",
-    sliderMax: "100%",
+    sliderMax: "100%"
   },
-};
 
-export default en;
+  aiStylist: {
+    tabs: {
+      aiStylist: "AI Stylist",
+      virtualTryOn: "Virtual Try-On"
+    },
+    aiStylistTab: {
+      titleLine1: "What should I wear",
+      titleLine2: "today?",
+      description: "Describe anything — Rai will style it",
+      placeholder: "All-black outfit for a gallery opening..",
+      quickIdeas: "QUICK IDEAS",
+      occasion: "Occasion",
+      mood: "Mood",
+      weather: "Weather",
+      usageLimit: "Usage Limit",
+      generationsLeft: "{{count}}/3 generations left today",
+      upgrade: "Upgrade for Unlimited",
+      generate: "Generate Outfit",
+      occasions: {
+        School: "School",
+        Date: "Date",
+        Party: "Party",
+        Work: "Work",
+        Gym: "Gym",
+        Brunch: "Brunch",
+        Travel: "Travel",
+        Wedding: "Wedding"
+      },
+      moods: {
+        Clean: "Clean",
+        Edgy: "Edgy",
+        Relaxed: "Relaxed",
+        Bold: "Bold",
+        Vintage: "Vintage",
+        Romantic: "Romantic",
+        Sporty: "Sporty"
+      },
+      weatherOptions: {
+        Sunny: "Sunny",
+        Rainy: "Rainy",
+        Cold: "Cold",
+        Snowy: "Snowy",
+        Humid: "Humid",
+        Windy: "Windy"
+      }
+    },
+    virtualTryOnTab: {
+      outfitSection: "1. The Outfit",
+      outfitIdPlaceholder: "Enter Outfit ID",
+      addButton: "Add",
+      or: "OR",
+      selectedItem: "Selected Item",
+      tapToReplace: "Tap to replace",
+      selectFromWardrobe: "Select from Wardrobe",
+      photoSection: "2. Your Photo",
+      uploadFullBody: "Upload full-body photo",
+      lightingAdvice: "Ensure good lighting for best results",
+      selectFromLibrary: "Select from Library",
+      tryButton: "Try This Outfit On Me"
+    }
+  },
+  subscription: {
+    unlockTitle: "Unlock Unlimited Style",
+    unlockDescription:
+      "Elevate your daily look with more generations and virtual try-ons.",
+    monthly: "Monthly",
+    yearly: "Yearly",
+    save25: "SAVE 25%",
+    purchaseNow: "Purchase Now",
+    footerNote: "Free for 3 days, then billed automatically unless cancelled.",
+    cancelAnytime: "Cancel anytime",
+    privacyPolicy: "Privacy Policy",
+    currentBadge: "CURRENT",
+    recommendedBadge: "RECOMMENDED",
+    freePlanName: "Free Plan",
+    basicPlanName: "Rai Basic",
+    proPlanName: "Rai Pro",
+    plans: {
+      free: {
+        feature1: "3 AI generations",
+        feature2: "3 VTOs"
+      },
+      basic: {
+        feature1: "30 AI generations",
+        feature2: "Upgrade to Pro to unlock VTO"
+      },
+      pro: {
+        feature1: "60 AI generations",
+        feature2: "30 Virtual Try-Ons"
+      }
+    }
+  }
+}
+
+export default en

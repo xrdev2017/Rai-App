@@ -10,7 +10,7 @@
     "splash": null,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.shovon12345.Rai",
+      "bundleIdentifier": "com.rai.fashion",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       },
@@ -23,7 +23,7 @@
         "backgroundImage": "./assets/adaptive-icon.png"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.shovon12345.Rai",
+      "package": "com.rai.fashion",
       "userInterfaceStyle": "automatic",
       "permissions": [
         "android.permission.RECORD_AUDIO",
@@ -53,7 +53,16 @@
           "recordAudioAndroid": true
         }
       ],
-      "expo-media-library"
+      "expo-media-library",
+      "react-native-iap",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "2.1.10"
+          }
+        }
+      ]
     ],
     "extra": {
       "eas": {

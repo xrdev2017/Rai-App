@@ -12,6 +12,7 @@ import ResetPasswordSuccessScreen from "../screens/auth/ResetPasswordSuccessScre
 import SetProfileScreen from "../screens/auth/SetProfileScreen";
 
 import AddItemScreen from "../create/AddItemScreen";
+import SelectItemsScreen from "../screens/aiStylist/SelectItemsScreen";
 import BottomNavigatorScreen from "../screens/bottomNavigator/BottomNavigatorScreen";
 import CreateLookbookScreen from "../create/CreateLookbookScreen";
 import AddItemEditScreen from "../editCard/AddItemEditScreen";
@@ -27,6 +28,8 @@ import CreateOutfitStack from "../create/createOutfitStack/CreateOutfitStack";
 import AccountStack from "../screens/bottomNavigator/accountStack/AcountStack";
 import { useSelector } from "react-redux";
 import PlannerEditScreen from "../screens/bottomNavigator/PlannerEditScreen";
+import SubscriptionScreen from "../screens/SubscriptionScreen";
+
 const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   const token = useSelector((state) => state.auth.token);
@@ -67,6 +70,7 @@ const AppNavigator = () => {
 
           {/* add items */}
           <Stack.Screen name="AddItem" component={AddItemScreen} />
+          <Stack.Screen name="SelectItems" component={SelectItemsScreen} />
           <Stack.Screen
             name="CreateLookbook"
             component={CreateLookbookScreen}
@@ -106,6 +110,9 @@ const AppNavigator = () => {
 
           {/* account stack */}
           <Stack.Screen name="AccountStack" component={AccountStack} />
+
+          {/* subscription */}
+          <Stack.Screen name="Subscription" component={SubscriptionScreen} />
         </>
       )}
     </Stack.Navigator>

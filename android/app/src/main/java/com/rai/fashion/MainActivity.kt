@@ -1,4 +1,4 @@
-package com.shovon12345.Rai
+package com.rai.fashion
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

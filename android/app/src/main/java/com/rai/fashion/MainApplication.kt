@@ -1,4 +1,4 @@
-package com.shovon12345.Rai
+package com.rai.fashion
 
 import android.app.Application
 import android.content.res.Configuration

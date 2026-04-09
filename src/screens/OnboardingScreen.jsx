@@ -1,6 +1,7 @@
-import { MoveRight } from "lucide-react-native";
-import React, { useRef, useState } from "react";
+import { MoveRight } from "lucide-react-native"
+import React, { useRef, useState } from "react"
 import {
+  StatusBar,
   Animated,
   FlatList,
   Image,
@@ -8,64 +9,70 @@ import {
   Text,
   View,
   StyleSheet,
-  Dimensions,
-} from "react-native";
+  Dimensions
+} from "react-native"
 import {
   responsiveHeight,
-  responsiveWidth,
-} from "react-native-responsive-dimensions";
-import { onboardingInfo } from "../../assets/data/data";
-import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { useTranslation } from "react-i18next";
-import { useTheme } from "../utils/ThemeContext";
+  responsiveWidth
+} from "react-native-responsive-dimensions"
+import { onboardingInfo } from "../../assets/data/data"
+import { useNavigation } from "@react-navigation/native"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { useTranslation } from "react-i18next"
+import { useTheme } from "../utils/ThemeContext"
 
-const { width, height } = Dimensions.get("window");
+const { width, height } = Dimensions.get("window")
 
 export default function OnboardingScreen() {
-  const scrollX = useRef(new Animated.Value(0)).current;
-  const [activeIndex, setActiveIndex] = useState(0);
-  const flatListRef = useRef();
-  const navigation = useNavigation();
-  const { t } = useTranslation();
-  const { isDarkMode } = useTheme();
+  const scrollX = useRef(new Animated.Value(0)).current
+  const [activeIndex, setActiveIndex] = useState(0)
+  const flatListRef = useRef()
+  const navigation = useNavigation()
+  const { t } = useTranslation()
+  const { isDarkMode } = useTheme()
 
   const handleNext = () => {
     if (activeIndex < onboardingInfo.length - 1) {
       flatListRef?.current?.scrollToIndex({
         index: activeIndex + 1,
-        animated: true,
-      });
+        animated: true
+      })
     } else {
       // console.log("Navigate to main app");
     }
-  };
+  }
 
   const handleLogin = () => {
-    navigation.navigate("Login");
-  };
+    navigation.navigate("Login")
+  }
 
   const handleSignUp = () => {
-    navigation.navigate("Signup");
-  };
+    navigation.navigate("Signup")
+  }
 
   const renderOnboardingItem = ({ item }) => {
-    const isActive = activeIndex === onboardingInfo.indexOf(item);
-
     return (
       <View style={styles.slideContainer}>
         {/* Image */}
-        <View style={styles.imageContainer}>
-          <Image source={item.image} style={styles.image} resizeMode="cover" />
+        <View
+          style={[
+            styles.imageContainer,
+            { backgroundColor: isDarkMode ? "#1A1A1A" : "#FCF6F5" }
+          ]}
+        >
+          <Image
+            source={item.image}
+            style={styles.image}
+            resizeMode="contain"
+          />
         </View>
 
         {/* Content */}
         <View
-          className={`absolute left-0 right-0 bottom-0 ${isDarkMode ? "bg-darkSurfacePrimary" : "bg-white"}`}
+          className={`flex-1 ${isDarkMode ? "bg-darkSurfacePrimary" : "bg-white"}`}
           style={styles.contentContainer}
         >
           {/* Dot Indicator */}
-
           <View style={styles.dotContainer}>
             {onboardingInfo.map((_, dotIndex) => (
               <View
@@ -74,7 +81,7 @@ export default function OnboardingScreen() {
                   styles.dot,
                   activeIndex === dotIndex
                     ? styles.activeDot
-                    : styles.inactiveDot,
+                    : styles.inactiveDot
                 ]}
               />
             ))}
@@ -82,8 +89,10 @@ export default function OnboardingScreen() {
 
           {/* Title & Subtitle */}
           <View style={styles.textContainer}>
-            <Text className="font-Bold text-4xl text-center text-textPrimary dark:text-darkTextPrimary">
-              {" "}
+            <Text
+              className="font-Bold text-4xl text-center text-textPrimary dark:text-darkTextPrimary"
+              style={{ width: 275 }}
+            >
               {t(item.titleKey)}
             </Text>
             <Text className="font-Regular text-center text-textPrimary dark:text-darkTextPrimary">
@@ -94,7 +103,10 @@ export default function OnboardingScreen() {
           {/* Buttons */}
           <View style={styles.buttonContainer}>
             {item.showLoginButtons ? (
-              <View className="flex-row justify-between items-center">
+              <View 
+                className="flex-row justify-between items-center w-full"
+                style={{ gap: responsiveWidth(2) }}
+              >
                 <Pressable
                   className="bg-surfaceAction py-4 rounded-xl flex-row items-center justify-center"
                   style={{ width: responsiveWidth(43) }}
@@ -118,7 +130,7 @@ export default function OnboardingScreen() {
               </View>
             ) : item.isFinal ? (
               <Pressable
-                className="bg-surfaceAction py-4 rounded-xl flex-row items-center justify-center gap-2"
+                className="bg-surfaceAction py-4 rounded-xl flex-row items-center justify-center gap-2 w-full"
                 onPress={handleNext}
                 android_ripple={{ color: "rgba(255,255,255,0.1)" }}
               >
@@ -129,7 +141,7 @@ export default function OnboardingScreen() {
               </Pressable>
             ) : (
               <Pressable
-                className="bg-surfaceAction py-4 rounded-xl flex-row items-center justify-center gap-2"
+                className="bg-surfaceAction py-4 rounded-xl flex-row items-center justify-center gap-2 w-full"
                 onPress={handleNext}
                 android_ripple={{ color: "rgba(255,255,255,0.1)" }}
               >
@@ -140,26 +152,22 @@ export default function OnboardingScreen() {
               </Pressable>
             )}
           </View>
-
-          {/* Footer */}
-          <View
-            className="flex-1 justify-center items-center"
-            style={{
-              position: "absolute",
-              bottom: responsiveHeight(10),
-              left: responsiveWidth(5),
-              right: responsiveWidth(5),
-            }}
-          >
-            <Text className="font-Regular mb-1 text-center text-textPrimary dark:text-darkTextPrimary">@2025 Rai</Text>
-          </View>
         </View>
       </View>
-    );
-  };
+    )
+  }
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: isDarkMode ? "#1A1A1A" : "#FCF6F5"
+      }}
+    >
+      <StatusBar
+        backgroundColor={isDarkMode ? "#1A1A1A" : "#FCF6F5"}
+        barStyle={isDarkMode ? "light-content" : "dark-content"}
+      />
       <FlatList
         ref={flatListRef}
         data={onboardingInfo}
@@ -172,50 +180,49 @@ export default function OnboardingScreen() {
           { useNativeDriver: false }
         )}
         onMomentumScrollEnd={(event) => {
-          const index = Math.round(event.nativeEvent.contentOffset.x / width);
-          setActiveIndex(index);
+          const index = Math.round(event.nativeEvent.contentOffset.x / width)
+          setActiveIndex(index)
         }}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderOnboardingItem}
       />
-    </SafeAreaView>
-  );
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  slideContainer: { width, height, flex: 1 },
-  imageContainer: { height: height * 0.5, width: "100%" },
-  image: { width: "100%", height: "100%" },
+  slideContainer: { width, height },
+  imageContainer: {
+    height: height * 0.55,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  image: { width: "100%", height: "100%", marginTop: 50 },
   contentContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: responsiveHeight(55),
-    // backgroundColor: "white",
-    borderTopLeftRadius: responsiveWidth(5),
-    borderTopRightRadius: responsiveWidth(5),
-    paddingHorizontal: responsiveWidth(5),
-    paddingTop: responsiveHeight(3),
-    // gap: responsiveHeight(3),
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderTopLeftRadius: responsiveWidth(8),
+    borderTopRightRadius: responsiveWidth(8),
+    paddingHorizontal: responsiveWidth(8),
+    paddingTop: responsiveHeight(5),
+    paddingBottom: responsiveHeight(8) // Extra padding for bottom home indicator
   },
   dotContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
-  dot: { height: 10, borderRadius: 6, marginHorizontal: 4 },
-  activeDot: { width: 32, backgroundColor: "#8E54FE" },
-  inactiveDot: { width: 10, backgroundColor: "#B28AFF" },
+  dot: { height: 8, borderRadius: 4, marginHorizontal: 4 },
+  activeDot: { width: 30, backgroundColor: "#8E54FE" },
+  inactiveDot: { width: 8, backgroundColor: "#B28AFF" },
   textContainer: {
     justifyContent: "center",
     alignItems: "center",
-    gap: responsiveHeight(3),
+    gap: responsiveHeight(2)
   },
   buttonContainer: {
-    position: "absolute",
-    top: responsiveHeight(30),
-    left: responsiveWidth(5),
-    right: responsiveWidth(5),
-  },
-});
+    width: "100%"
+  }
+})

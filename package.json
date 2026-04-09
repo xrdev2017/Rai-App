@@ -22,6 +22,7 @@
     "@reduxjs/toolkit": "^2.8.2",
     "expo": "~53.0.20",
     "expo-asset": "~11.1.7",
+    "expo-build-properties": "^55.0.12",
     "expo-camera": "~16.1.11",
     "expo-dev-client": "~5.2.4",
     "expo-file-system": "^19.0.19",
@@ -30,6 +31,7 @@
     "expo-media-library": "~17.1.7",
     "expo-splash-screen": "~0.30.10",
     "expo-status-bar": "~2.2.3",
+    "i18next": "^25.8.18",
     "jwt-decode": "^4.0.0",
     "lucide-react-native": "^0.525.0",
     "moment": "^2.30.1",
@@ -37,17 +39,19 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "react": "19.0.0",
     "react-hook-form": "^7.62.0",
-    "react-i18next": "^15.7.3",
+    "react-i18next": "^16.5.8",
     "react-native": "0.79.5",
     "react-native-calendars": "^1.1313.0",
     "react-native-emoji-modal": "^0.2.4",
-    "react-native-gesture-handler": "~2.24.0",
+    "react-native-gesture-handler": "2.24.0",
+    "react-native-iap": "^14.7.20",
     "react-native-localize": "^3.5.2",
+    "react-native-nitro-modules": "^0.35.3",
     "react-native-otp-inputs": "^7.4.0",
     "react-native-otp-textinput": "^1.1.7",
     "react-native-pager-view": "6.7.1",
     "react-native-qrcode-svg": "^6.3.15",
-    "react-native-reanimated": "^4.1.2",
+    "react-native-reanimated": "^3.19.5",
     "react-native-responsive-dimensions": "^3.1.1",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
@@ -56,8 +60,6 @@
     "react-native-svg": "15.11.2",
     "react-native-tab-view": "^4.1.2",
     "react-native-view-shot": "4.0.3",
-    "react-native-worklets": "^0.6.1",
-    "react-native-worklets-core": "^1.6.2",
     "react-redux": "^9.2.0",
     "redux-persist": "^6.0.0",
     "socket.io-client": "^4.8.1",
@@ -68,5 +70,8 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true
+  "private": true,
+  "resolutions": {
+    "react-native": "0.79.5"
+  }
 }

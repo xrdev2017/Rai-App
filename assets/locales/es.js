@@ -1,13 +1,14 @@
 const es = {
   onboarding: {
-    title1: "Comienza con un estilo más inteligente",
+    title1: "Descubre tu estilo personal",
     subtitle1:
-      "Organiza tu guardarropa, descubre conjuntos creados por IA y compra las últimas tendencias en una sola aplicación",
-    title2: "Tu estilista y comprador personal con IA",
-    subtitle2: "Ideas de outfits y compras inteligentes hechas solo para ti.",
-    title3: "Estilízalo, cómpralo, compártelo",
+      "Crea el armario de tus sueños utilizando nuestro lienzo interactivo, tableros de looks y paneles de inspiración para planificar tus conjuntos diarios.",
+    title2: "Tu estilista personal de IA",
+    subtitle2:
+      "Deja que la IA cure tu próximo look y usa la herramienta de prueba virtual para ver el ajuste perfecto al instante.",
+    title3: "Conecta con creadores de estilo",
     subtitle3:
-      "Planifica outfits, compra nuevas prendas y conecta con la comunidad de estilo.",
+      "Comparte tus atuendos, inspírate en el feed de la comunidad y guarda tus piezas favoritas en tu lista de deseos privada.",
     next: "Siguiente",
     getStarted: "Empezar",
     login: "Iniciar sesión",
@@ -272,6 +273,7 @@ const es = {
     wardrobe: "Guardarropa",
     community: "Comunidad",
     planner: "Planificador",
+    styleHub: "Centro de estilo",
     account: "Cuenta",
   },
 
@@ -466,6 +468,100 @@ const es = {
     error: "¡Error interno o de Internet!",
     sliderMin: "1",
     sliderMax: "100%",
+  },
+
+  aiStylist: {
+    tabs: {
+      aiStylist: "Estilista IA",
+      virtualTryOn: "Prueba Virtual",
+    },
+    aiStylistTab: {
+      titleLine1: "¿Qué debería ponerme",
+      titleLine2: "hoy?",
+      description: "Describe lo que sea — Rai lo estilizará",
+      placeholder: "Outfit totalmente negro para una inauguración de galería...",
+      quickIdeas: "IDEAS RÁPIDAS",
+      occasion: "Ocasión",
+      mood: "Estado de ánimo",
+      weather: "Clima",
+      usageLimit: "Límite de uso",
+      generationsLeft: "{{count}}/3 generaciones restantes hoy",
+      upgrade: "Mejorar para Ilimitado",
+      generate: "Generar Outfit",
+      occasions: {
+        School: "Escuela",
+        Date: "Cita",
+        Party: "Fiesta",
+        Work: "Trabajo",
+        Gym: "Gimnasio",
+        Brunch: "Brunch",
+        Travel: "Viaje",
+        Wedding: "Boda",
+      },
+      moods: {
+        Clean: "Limpio",
+        Edgy: "Atrevido",
+        Relaxed: "Relajado",
+        Bold: "Audaz",
+        Vintage: "Vintage",
+        Romantic: "Romántico",
+        Sporty: "Deportivo",
+      },
+      weatherOptions: {
+        Sunny: "Soleado",
+        Rainy: "Lluvioso",
+        Cold: "Frío",
+        Snowy: "Nevado",
+        Humid: "Húmedo",
+        Windy: "Ventoso",
+      },
+    },
+    virtualTryOnTab: {
+      outfitSection: "1. El Outfit",
+      outfitIdPlaceholder: "Ingresa el ID del Outfit",
+      addButton: "Agregar",
+      or: "O",
+      selectedItem: "Artículo Seleccionado",
+      tapToReplace: "Toca para reemplazar",
+      selectFromWardrobe: "Seleccionar del Guardarropa",
+      photoSection: "2. Tu Foto",
+      uploadFullBody: "Subir foto de cuerpo completo",
+      lightingAdvice: "Asegura buena iluminación para mejores resultados",
+      selectFromLibrary: "Seleccionar de la Biblioteca",
+      tryButton: "Pruébame este Outfit",
+    },
+  },
+  subscription: {
+    unlockTitle: "Desbloquea un estilo ilimitado",
+    unlockDescription:
+      "Eleva tu look diario con más generaciones y pruebas virtuales.",
+    monthly: "Mensual",
+    yearly: "Anual",
+    save25: "AHORRA 25%",
+    purchaseNow: "Comprar ahora",
+    footerNote:
+      "Gratis por 3 días, luego se factura automáticamente a menos que se cancele.",
+    cancelAnytime: "Cancela en cualquier momento",
+    privacyPolicy: "Política de privacidad",
+    currentBadge: "ACTUAL",
+    recommendedBadge: "RECOMENDADO",
+    freePlanName: "Plan gratuito",
+    basicPlanName: "Rai Básico",
+    proPlanName: "Rai Pro",
+    plans: {
+      free: {
+        feature1: "3 generaciones de IA",
+        feature2: "3 VTOs",
+      },
+      basic: {
+        feature1: "30 generaciones de IA",
+        feature2: "Mejora a Pro para desbloquear VTO",
+      },
+      pro: {
+        feature1: "60 generaciones de IA",
+        feature2: "30 probadores virtuales",
+      },
+    },
   },
 };
 

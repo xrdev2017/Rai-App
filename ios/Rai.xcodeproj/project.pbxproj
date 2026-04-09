@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		74979D4E396B33B3CEA584AE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 7A1E10560936BEE949256D89 /* PrivacyInfo.xcprivacy */; };
-		AEC91E35DA68EA9AEE24202A /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EBAFF78AD6F959A113CED3 /* ExpoModulesProvider.swift */; };
+		4E88D14B81867011D58C7777 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 37B53016FD6E0ED38D383047 /* PrivacyInfo.xcprivacy */; };
+		51E971A05D7CDC359D97B7BE /* libPods-Rai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D40F4A2B61360FB6CF2883EF /* libPods-Rai.a */; };
+		644CBFA8729058EB4F1A31A1 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA97EF959E2D103E831872 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		EFC4FA5EEBD03E92574A8103 /* libPods-Rai.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C32F10743779B16455F3F22E /* libPods-Rai.a */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,16 +20,16 @@
 		13B07F961A680F5B00A75B9A /* Rai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Rai/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Rai/Info.plist; sourceTree = "<group>"; };
-		67EBAFF78AD6F959A113CED3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Rai/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		7A1E10560936BEE949256D89 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Rai/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		23122A9E46399A60FD276C22 /* Pods-Rai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rai.debug.xcconfig"; path = "Target Support Files/Pods-Rai/Pods-Rai.debug.xcconfig"; sourceTree = "<group>"; };
+		37B53016FD6E0ED38D383047 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Rai/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6AA91A0E38A38D870922B490 /* Pods-Rai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rai.release.xcconfig"; path = "Target Support Files/Pods-Rai/Pods-Rai.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = Rai/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C32F10743779B16455F3F22E /* libPods-Rai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA8983884E9CDF9BC60AEAF9 /* Pods-Rai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rai.debug.xcconfig"; path = "Target Support Files/Pods-Rai/Pods-Rai.debug.xcconfig"; sourceTree = "<group>"; };
+		D40F4A2B61360FB6CF2883EF /* libPods-Rai.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rai.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Rai/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* Rai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Rai-Bridging-Header.h"; path = "Rai/Rai-Bridging-Header.h"; sourceTree = "<group>"; };
-		F342E499FA29BA5068E0B79C /* Pods-Rai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rai.release.xcconfig"; path = "Target Support Files/Pods-Rai/Pods-Rai.release.xcconfig"; sourceTree = "<group>"; };
+		FAEA97EF959E2D103E831872 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-Rai/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFC4FA5EEBD03E92574A8103 /* libPods-Rai.a in Frameworks */,
+				51E971A05D7CDC359D97B7BE /* libPods-Rai.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +53,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				7A1E10560936BEE949256D89 /* PrivacyInfo.xcprivacy */,
+				37B53016FD6E0ED38D383047 /* PrivacyInfo.xcprivacy */,
 			);
 			name = Rai;
 			sourceTree = "<group>";
@@ -62,9 +62,17 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C32F10743779B16455F3F22E /* libPods-Rai.a */,
+				D40F4A2B61360FB6CF2883EF /* libPods-Rai.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AD13D8F54D08756DD482283 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				B91768A9CB489030F67F885A /* Rai */,
+			);
+			name = ExpoModulesProviders;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -81,8 +89,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				8D8382E1D8B3D4FC69504093 /* Pods */,
-				8C1ABA21C04849FB824E965D /* ExpoModulesProviders */,
+				950A615037A85DD9198AF02C /* Pods */,
+				6AD13D8F54D08756DD482283 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -97,22 +105,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C1ABA21C04849FB824E965D /* ExpoModulesProviders */ = {
+		950A615037A85DD9198AF02C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CEBCDCB6E57DDDA382E3AEFD /* Rai */,
-			);
-			name = ExpoModulesProviders;
-			sourceTree = "<group>";
-		};
-		8D8382E1D8B3D4FC69504093 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EA8983884E9CDF9BC60AEAF9 /* Pods-Rai.debug.xcconfig */,
-				F342E499FA29BA5068E0B79C /* Pods-Rai.release.xcconfig */,
+				23122A9E46399A60FD276C22 /* Pods-Rai.debug.xcconfig */,
+				6AA91A0E38A38D870922B490 /* Pods-Rai.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B91768A9CB489030F67F885A /* Rai */ = {
+			isa = PBXGroup;
+			children = (
+				FAEA97EF959E2D103E831872 /* ExpoModulesProvider.swift */,
+			);
+			name = Rai;
 			sourceTree = "<group>";
 		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
@@ -124,14 +132,6 @@
 			path = Rai/Supporting;
 			sourceTree = "<group>";
 		};
-		CEBCDCB6E57DDDA382E3AEFD /* Rai */ = {
-			isa = PBXGroup;
-			children = (
-				67EBAFF78AD6F959A113CED3 /* ExpoModulesProvider.swift */,
-			);
-			name = Rai;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Rai" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				3093E765044A7B3CB7A2A4AB /* [Expo] Configure project */,
+				87E6F876B055D9682AB7C37A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				0C858BD2FEB4CE1F91F2A2C0 /* [CP] Embed Pods Frameworks */,
+				CA6F831C7C623AF35295462B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				74979D4E396B33B3CEA584AE /* PrivacyInfo.xcprivacy in Resources */,
+				4E88D14B81867011D58C7777 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,43 +239,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		0C858BD2FEB4CE1F91F2A2C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Rai/Pods-Rai-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rai/Pods-Rai-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3093E765044A7B3CB7A2A4AB /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Rai/expo-configure-project.sh\"\n";
 		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -331,6 +294,43 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rai/Pods-Rai-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		87E6F876B055D9682AB7C37A /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-Rai/expo-configure-project.sh\"\n";
+		};
+		CA6F831C7C623AF35295462B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rai/Pods-Rai-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/hermes-engine/Pre-built/hermes.framework/hermes",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/hermes.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rai/Pods-Rai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -339,7 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				AEC91E35DA68EA9AEE24202A /* ExpoModulesProvider.swift in Sources */,
+				644CBFA8729058EB4F1A31A1 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +348,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA8983884E9CDF9BC60AEAF9 /* Pods-Rai.debug.xcconfig */;
+			baseConfigurationReference = 23122A9E46399A60FD276C22 /* Pods-Rai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -373,7 +373,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shovon12345.Rai;
-				PRODUCT_NAME = "Rai";
+				PRODUCT_NAME = Rai;
 				SWIFT_OBJC_BRIDGING_HEADER = "Rai/Rai-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -384,7 +384,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F342E499FA29BA5068E0B79C /* Pods-Rai.release.xcconfig */;
+			baseConfigurationReference = 6AA91A0E38A38D870922B490 /* Pods-Rai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -404,7 +404,7 @@
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shovon12345.Rai;
-				PRODUCT_NAME = "Rai";
+				PRODUCT_NAME = Rai;
 				SWIFT_OBJC_BRIDGING_HEADER = "Rai/Rai-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

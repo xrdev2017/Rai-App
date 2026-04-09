@@ -10,6 +10,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
 import SplashScreenAnimated from "./src/root/SplashScreenAnimated";
 import * as SplashScreen from "expo-splash-screen";
+import FontProvider from "./src/utils/FontProvider";
 import AppNavigator from "./src/root/AppNavigator";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { FormProvider, useForm } from "react-hook-form";
@@ -85,11 +86,13 @@ export default function App() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider>
-          <AppContent 
-            methods={methods} 
-            isReady={isReady} 
-            onSplashFinish={onSplashFinish} 
-          />
+          <FontProvider>
+            <AppContent
+              methods={methods}
+              isReady={isReady}
+              onSplashFinish={onSplashFinish}
+            />
+          </FontProvider>
         </ThemeProvider>
       </PersistGate>
     </Provider>
