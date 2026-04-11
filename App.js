@@ -1,13 +1,13 @@
 import "./global.css";
 import { StatusBar } from "expo-status-bar";
-import { View } from "react-native";
+import { View, Alert } from "react-native";
 import {
   DarkTheme as NavigationDarkTheme,
   DefaultTheme as NavigationDefaultTheme,
   NavigationContainer,
 } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SplashScreenAnimated from "./src/root/SplashScreenAnimated";
 import * as SplashScreen from "expo-splash-screen";
 import FontProvider from "./src/utils/FontProvider";
@@ -20,6 +20,12 @@ import { PersistGate } from "redux-persist/integration/react";
 import i18n from "./src/utils/languageSetup";
 import { I18nextProvider } from "react-i18next";
 import { ThemeProvider, useTheme } from "./src/utils/ThemeContext";
+import analytics from "@react-native-firebase/analytics";
+import crashlytics from "@react-native-firebase/crashlytics";
+
+// Set up crashlytics config if needed (usually automatic)
+crashlytics().setCrashlyticsCollectionEnabled(true);
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -82,6 +88,14 @@ export default function App() {
 
   const methods = useForm({ mode: "onChange" });
 
+  useEffect(() => {
+    const logAppOpen = async () => {
+      await analytics().logAppOpen();
+      console.log("Firebase Analytics: App Opened Event Logged");
+    };
+    logAppOpen();
+  }, []);
+
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
@@ -98,3 +112,4 @@ export default function App() {
     </Provider>
   );
 }
+

@@ -37,6 +37,8 @@ android/app/debug/
 *.key
 *.mobileprovision
 *.pem
+key.properties
+android/key.properties
 
 # 🔹 Metro
 .metro-health-check*

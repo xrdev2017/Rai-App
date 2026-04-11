@@ -7,9 +7,14 @@ import {
   StyleSheet,
   Dimensions,
   Pressable,
-  Image
+  Image,
+  Platform,
+  Alert,
+  ActivityIndicator
 } from "react-native"
 import { useNavigation } from "@react-navigation/native"
+import { useSelector, useDispatch } from "react-redux"
+import { useGetProfileUpdateQuery } from "../redux/slices/authSlice"
 import {
   X,
   Star,
@@ -38,6 +43,8 @@ import Svg, {
 import { useTheme } from "../utils/ThemeContext"
 import { StatusBar } from "expo-status-bar"
 import i18n from "../utils/languageSetup"
+import * as RNIap from "react-native-iap"
+
 
 const { width } = Dimensions.get("window")
 
@@ -108,6 +115,133 @@ const SubscriptionScreen = () => {
   const { isDarkMode } = useTheme()
   const [billingCycle, setBillingCycle] = useState("monthly") // 'monthly' or 'yearly'
   const [selectedPlan, setSelectedPlan] = useState("free") // 'free', 'basic', 'pro'
+  
+  const [subscriptions, setSubscriptions] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [purchasing, setPurchasing] = useState(false)
+
+  const { user } = useSelector((state) => state.auth)
+  const { refetch: refetchProfile } = useGetProfileUpdateQuery()
+
+  React.useEffect(() => {
+    const loadProducts = async () => {
+      setLoading(true)
+      try {
+        console.log("IAP: Initializing connection...");
+        await RNIap.initConnection();
+        const testIds = ["rai_basic", "rai_pro"];
+        const data = await RNIap.fetchProducts({ skus: testIds, type: 'subs' });
+        setSubscriptions(data || []);
+      } catch (err) {
+        console.error("IAP: Fetch Error:", err);
+      } finally {
+        setLoading(false)
+      }
+    };
+    loadProducts();
+  }, []);
+
+  React.useEffect(() => {
+    console.log("IAP: Setting up purchase listeners...");
+    const purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async (purchase) => {
+      console.log('✅ IAP: Purchase Updated Event Received:', JSON.stringify(purchase, null, 2));
+      const receipt = purchase.purchaseToken;
+      if (receipt) {
+        try {
+          await RNIap.finishTransaction({ purchase, isConsumable: false });
+          console.log('✅ IAP: Transaction finished and acknowledged');
+          if (refetchProfile) refetchProfile();
+          Alert.alert("Success", "Your subscription has been activated!");
+        } catch (ackErr) {
+          console.error('❌ IAP Acknowledgement Error:', ackErr);
+        }
+      }
+    });
+
+    const purchaseErrorSubscription = RNIap.purchaseErrorListener((error) => {
+      console.warn('❌ IAP: Purchase Error Event:', error);
+      if (error?.code !== "E_USER_CANCELLED") {
+        Alert.alert("Purchase Error", error.message || "An error occurred.");
+      }
+    });
+
+    return () => {
+      console.log("IAP: Cleaning up listeners...");
+      purchaseUpdateSubscription.remove();
+      purchaseErrorSubscription.remove();
+    };
+  }, [refetchProfile]);
+
+  const currentUserPlan = user?.plan || "free"; 
+
+  const getRealPlanData = (planId) => {
+    const sub = subscriptions.find((s) => (s?.productId || s?.id) === planId)
+    if (!sub) return null
+
+    // Mapping: rai_basic -> basic-month/year, rai_pro -> pro-month/year
+    const normalizedPlanId = planId.replace("rai_", "")
+    const targetBasePlanId = `${normalizedPlanId}-${billingCycle === "monthly" ? "month" : "year"}`
+    
+    // Find all matching offers for this base plan - handling Android specific property name
+    const matchingOffers = (sub.subscriptionOfferDetailsAndroid || sub.subscriptionOfferDetails || []).filter(
+      (o) => o.basePlanId === targetBasePlanId
+    )
+    
+    // Prioritize offers with trial (offerId exists), otherwise fallback to base plan
+    const offer = matchingOffers.find(o => o.offerId) || matchingOffers[0]
+    
+    if (!offer) return { price: null, offerToken: null, period: null }
+
+    const latestPhase = offer.pricingPhases.pricingPhaseList[offer.pricingPhases.pricingPhaseList.length - 1]
+    return {
+      price: latestPhase.formattedPrice,
+      offerToken: offer.offerToken,
+      basePlanId: offer.basePlanId,
+      period: latestPhase.billingPeriod
+    }
+  }
+
+  const handlePurchase = async () => {
+    if (selectedPlan === "free") {
+      Alert.alert("Info", "You are already on the Free plan.")
+      return
+    }
+
+    const planData = getRealPlanData(selectedPlan)
+    if (!planData || !planData.offerToken) {
+      Alert.alert("Error", "Product information not available. Please try again later.")
+      return
+    }
+
+    try {
+      setPurchasing(true)
+      console.log(`Initialising purchase for: ${selectedPlan} with offer: ${planData.offerToken}`);
+      
+      await RNIap.requestPurchase({
+        request: {
+          android: {
+            skus: [selectedPlan],
+            subscriptionOffers: [
+              {
+                sku: selectedPlan,
+                offerToken: planData.offerToken,
+              },
+            ],
+          },
+          ios: {
+            sku: selectedPlan,
+          },
+        },
+        type: "subs",
+      })// The purchaseUpdateListener globally should handle the result
+    } catch (err) {
+      if (err?.code !== "E_USER_CANCELLED") {
+        Alert.alert("Error", `Purchase failed: ${err.message}`)
+      }
+    } finally {
+      setPurchasing(false)
+    }
+  }
 
   const freePlan = {
     id: "free",
@@ -117,14 +251,20 @@ const SubscriptionScreen = () => {
       { text: i18n.t("subscription.plans.free.feature1"), available: true },
       { text: i18n.t("subscription.plans.free.feature2"), available: true }
     ],
-    badge: i18n.t("subscription.currentBadge")
+    badge: currentUserPlan === "free" ? i18n.t("subscription.currentBadge") : null
+  }
+
+  const getPlanPrice = (planId, defaultPrice) => {
+    if (loading) return "..."
+    const realData = getRealPlanData(planId)
+    return realData?.price || defaultPrice
   }
 
   const PLANS = [
     {
-      id: "basic",
+      id: "rai_basic",
       name: i18n.t("subscription.basicPlanName"),
-      price: billingCycle === "monthly" ? "$4.99" : "$44.99",
+      price: getPlanPrice("rai_basic", billingCycle === "monthly" ? "₹550.00" : "₹4,900.00"),
       period: billingCycle === "monthly" ? "/mo" : "/year",
       features: [
         {
@@ -137,12 +277,13 @@ const SubscriptionScreen = () => {
           available: false,
           icon: "lock"
         }
-      ]
+      ],
+      badge: currentUserPlan === "rai_basic" ? i18n.t("subscription.currentBadge") : null
     },
     {
-      id: "pro",
+      id: "rai_pro",
       name: i18n.t("subscription.proPlanName"),
-      price: billingCycle === "monthly" ? "$9.99" : "$89.99",
+      price: getPlanPrice("rai_pro", billingCycle === "monthly" ? "₹1,100.00" : "₹9,900.00"),
       period: billingCycle === "monthly" ? "/mo" : "/year",
       isPremium: true,
       features: [
@@ -157,7 +298,7 @@ const SubscriptionScreen = () => {
           icon: "shirt"
         }
       ],
-      badge: i18n.t("subscription.recommendedBadge")
+      badge: currentUserPlan === "rai_pro" ? i18n.t("subscription.currentBadge") : i18n.t("subscription.recommendedBadge")
     }
   ]
 
@@ -500,20 +641,29 @@ const SubscriptionScreen = () => {
             }}
           />
           <TouchableOpacity
+            onPress={handlePurchase}
+            disabled={purchasing}
             activeOpacity={0.8}
             className="flex-row items-center justify-center w-full"
             style={{
               backgroundColor: "#8E54FE",
               height: 48,
               borderRadius: 12,
-              zIndex: 1
+              zIndex: 1,
+              opacity: purchasing ? 0.7 : 1
             }}
           >
-            <Text className="text-white text-[16px] font-Bold">
-              {i18n.t("subscription.purchaseNow")}
-            </Text>
-            <View style={{ width: 8 }} />
-            <ArrowRight size={20} color="white" strokeWidth={2.5} />
+            {purchasing ? (
+              <ActivityIndicator color="white" />
+            ) : (
+              <>
+                <Text className="text-white text-[16px] font-Bold">
+                  {i18n.t("subscription.purchaseNow")}
+                </Text>
+                <View style={{ width: 8 }} />
+                <ArrowRight size={20} color="white" strokeWidth={2.5} />
+              </>
+            )}
           </TouchableOpacity>
         </View>
 

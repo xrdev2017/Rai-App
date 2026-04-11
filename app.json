@@ -11,6 +11,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.rai.fashion",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       },
@@ -24,6 +25,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.rai.fashion",
+      "googleServicesFile": "./google-services.json",
       "userInterfaceStyle": "automatic",
       "permissions": [
         "android.permission.RECORD_AUDIO",
@@ -55,6 +57,8 @@
       ],
       "expo-media-library",
       "react-native-iap",
+      "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics",
       [
         "expo-build-properties",
         {

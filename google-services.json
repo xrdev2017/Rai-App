@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1083981792720",
+    "project_id": "rairus",
+    "storage_bucket": "rairus.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083981792720:android:1fa62b96668b8bd91f25d5",
+        "android_client_info": {
+          "package_name": "com.rai.fashion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWEVRejMtr2qBx8Q4UErXKrcqR0YIuJY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083981792720:android:994891e8dcff2d941f25d5",
+        "android_client_info": {
+          "package_name": "com.shovon12345.Rai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWEVRejMtr2qBx8Q4UErXKrcqR0YIuJY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
