@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import {
 } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { useSelector, useDispatch } from "react-redux"
-import { useGetProfileUpdateQuery } from "../redux/slices/authSlice"
+import { useGetProfileUpdateQuery, useVerifyIosPurchaseMutation, useVerifyAndroidPurchaseMutation } from "../redux/slices/authSlice"
 import {
   X,
   Star,
@@ -43,7 +43,16 @@ import Svg, {
 import { useTheme } from "../utils/ThemeContext"
 import { StatusBar } from "expo-status-bar"
 import i18n from "../utils/languageSetup"
-import * as RNIap from "react-native-iap"
+import {
+  initConnection,
+  fetchProducts,
+  finishTransaction,
+  purchaseUpdatedListener,
+  purchaseErrorListener,
+  requestSubscription,
+  requestPurchase
+} from "react-native-iap"
+import { subscriptionSkus } from "../utils/iapManager"
 
 
 const { width } = Dimensions.get("window")
@@ -119,18 +128,22 @@ const SubscriptionScreen = () => {
   const [subscriptions, setSubscriptions] = useState([])
   const [loading, setLoading] = useState(false)
   const [purchasing, setPurchasing] = useState(false)
+  const isLocalPurchase = useRef(false)
 
   const { user } = useSelector((state) => state.auth)
   const { refetch: refetchProfile } = useGetProfileUpdateQuery()
+  const [verifyIosPurchase] = useVerifyIosPurchaseMutation()
+  const [verifyAndroidPurchase] = useVerifyAndroidPurchaseMutation()
 
   React.useEffect(() => {
     const loadProducts = async () => {
       setLoading(true)
       try {
-        console.log("IAP: Initializing connection...");
-        await RNIap.initConnection();
-        const testIds = ["rai_basic", "rai_pro"];
-        const data = await RNIap.fetchProducts({ skus: testIds, type: 'subs' });
+        await initConnection();
+        const data = await fetchProducts({ skus: subscriptionSkus, type: 'subs' });
+        if (data && data.length > 0) {
+          console.log("✅ IAP: Subscriptions loaded successfully");
+        }
         setSubscriptions(data || []);
       } catch (err) {
         console.error("IAP: Fetch Error:", err);
@@ -142,25 +155,52 @@ const SubscriptionScreen = () => {
   }, []);
 
   React.useEffect(() => {
-    console.log("IAP: Setting up purchase listeners...");
-    const purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async (purchase) => {
-      console.log('✅ IAP: Purchase Updated Event Received:', JSON.stringify(purchase, null, 2));
+    const purchaseUpdateSubscription = purchaseUpdatedListener(async (purchase) => {
+      console.log('🔑 IAP Product ID (productId):', purchase.productId);
+      console.log('🔑 IAP Transaction ID (transactionId):', purchase.transactionId);
+      console.log('🔑 IAP Purchase Token (purchaseToken):', purchase.purchaseToken);
       const receipt = purchase.purchaseToken;
       if (receipt) {
         try {
-          await RNIap.finishTransaction({ purchase, isConsumable: false });
-          console.log('✅ IAP: Transaction finished and acknowledged');
-          if (refetchProfile) refetchProfile();
-          Alert.alert("Success", "Your subscription has been activated!");
+          await finishTransaction({ purchase, isConsumable: false });
+          console.log('✅ IAP: Purchase completed and acknowledged');
+          
+          if (isLocalPurchase.current) {
+            try {
+              if (Platform.OS === 'ios') {
+                console.log('🚀 IAP: Verifying iOS purchase with backend for transaction:', purchase.transactionId);
+                await verifyIosPurchase({ transactionId: purchase.transactionId }).unwrap();
+                console.log('✅ IAP: Backend verification successful for transaction:', purchase.transactionId);
+              } else {
+                console.log('🚀 IAP: Verifying Android purchase with backend...');
+                await verifyAndroidPurchase({
+                  purchaseToken: purchase.purchaseToken,
+                  productId: purchase.productId,
+                  packageName: 'com.rai.fashion'
+                }).unwrap();
+                console.log('✅ IAP: Backend verification successful');
+              }
+              
+              if (refetchProfile) refetchProfile();
+              Alert.alert("Success", "Your subscription has been activated!");
+            } catch (verifyErr) {
+              console.error('❌ IAP Backend Verification Error:', verifyErr);
+              Alert.alert("Purchase Warning", "Purchase was successful, but we had trouble activating it on our server. Please contact support if your features don't unlock.");
+            }
+            isLocalPurchase.current = false;
+          } else {
+            console.log("ℹ️ IAP: Recovered transaction processed silently.");
+            if (refetchProfile) refetchProfile();
+          }
         } catch (ackErr) {
-          console.error('❌ IAP Acknowledgement Error:', ackErr);
+          console.error('❌ IAP Acknowledgment Error:', ackErr);
         }
       }
     });
 
-    const purchaseErrorSubscription = RNIap.purchaseErrorListener((error) => {
-      console.warn('❌ IAP: Purchase Error Event:', error);
+    const purchaseErrorSubscription = purchaseErrorListener((error) => {
       if (error?.code !== "E_USER_CANCELLED") {
+        console.error(`❌ IAP Purchase Error [Code: ${error.code}]:`, error.message);
         Alert.alert("Purchase Error", error.message || "An error occurred.");
       }
     });
@@ -175,6 +215,25 @@ const SubscriptionScreen = () => {
   const currentUserPlan = user?.plan || "free"; 
 
   const getRealPlanData = (planId) => {
+    if (Platform.OS === 'ios') {
+      const targetSku = `${planId}_${billingCycle === "monthly" ? "month" : "year"}`
+      const sub = subscriptions.find((s) => (s?.productId || s?.id || s?.productId) === targetSku)
+      if (!sub) {
+        console.warn(`IAP: Could not find sub with ID: ${targetSku}`);
+        return null
+      }
+
+      const sku = sub.id || sub.productId;
+      console.log(`IAP: Found sub for iOS: ${sku}`);
+
+      return {
+        price: sub.localizedPrice || sub.displayPrice,
+        offerToken: "ios_dummy_token", // Just to pass the !planData.offerToken check
+        sku: sku,
+        period: billingCycle === "monthly" ? "mo" : "year"
+      }
+    }
+
     const sub = subscriptions.find((s) => (s?.productId || s?.id) === planId)
     if (!sub) return null
 
@@ -197,7 +256,8 @@ const SubscriptionScreen = () => {
       price: latestPhase.formattedPrice,
       offerToken: offer.offerToken,
       basePlanId: offer.basePlanId,
-      period: latestPhase.billingPeriod
+      period: latestPhase.billingPeriod,
+      sku: planId
     }
   }
 
@@ -208,6 +268,7 @@ const SubscriptionScreen = () => {
     }
 
     const planData = getRealPlanData(selectedPlan)
+
     if (!planData || !planData.offerToken) {
       Alert.alert("Error", "Product information not available. Please try again later.")
       return
@@ -215,27 +276,26 @@ const SubscriptionScreen = () => {
 
     try {
       setPurchasing(true)
-      console.log(`Initialising purchase for: ${selectedPlan} with offer: ${planData.offerToken}`);
+      isLocalPurchase.current = true
+      console.log(`🚀 IAP: Initiating purchase for: ${selectedPlan}`);
       
-      await RNIap.requestPurchase({
+      const purchaseRequest = {
         request: {
-          android: {
-            skus: [selectedPlan],
-            subscriptionOffers: [
-              {
-                sku: selectedPlan,
-                offerToken: planData.offerToken,
-              },
-            ],
-          },
-          ios: {
-            sku: selectedPlan,
-          },
+          apple: { sku: planData.sku },
+          google: {
+            skus: [planData.sku],
+            ...(planData.offerToken ? {
+              subscriptionOffers: [{ sku: planData.sku, offerToken: planData.offerToken }]
+            } : {})
+          }
         },
-        type: "subs",
-      })// The purchaseUpdateListener globally should handle the result
+        type: 'subs'
+      };
+
+      await requestPurchase(purchaseRequest);
     } catch (err) {
       if (err?.code !== "E_USER_CANCELLED") {
+        console.error("❌ IAP: Purchase failed:", err.message);
         Alert.alert("Error", `Purchase failed: ${err.message}`)
       }
     } finally {

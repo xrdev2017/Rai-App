@@ -372,6 +372,38 @@ export const authSlice = baseApi.injectEndpoints({
       //   skipAuth: true, // ✅ This tells prepareHeaders to skip Authorization
       // },
     }),
+    verifyIosPurchase: builder.mutation({
+      query: (credentials) => ({
+        url: "verify/ios",
+        method: "POST",
+        body: credentials,
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        console.log("🚀 verifyIosPurchase Request Params:", arg);
+        try {
+          const { data } = await queryFulfilled;
+          console.log("✅ verifyIosPurchase Response:", data);
+        } catch (error) {
+          console.error("❌ verifyIosPurchase Error:", error);
+        }
+      },
+    }),
+    verifyAndroidPurchase: builder.mutation({
+      query: (credentials) => ({
+        url: "verify/android",
+        method: "POST",
+        body: credentials,
+      }),
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        console.log("🚀 verifyAndroidPurchase Request Params:", arg);
+        try {
+          const { data } = await queryFulfilled;
+          console.log("✅ verifyAndroidPurchase Response:", data);
+        } catch (error) {
+          console.error("❌ verifyAndroidPurchase Error:", error);
+        }
+      },
+    }),
   }),
 
   overrideExisting: true,
@@ -439,4 +471,6 @@ export const {
   useGoogleAppleSigninMutation,
 
   useUpdateProfileInfoMutation,
+  useVerifyIosPurchaseMutation,
+  useVerifyAndroidPurchaseMutation,
 } = authSlice;

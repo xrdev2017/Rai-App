@@ -56,8 +56,8 @@ const AIStylistTab = () => {
   const user = useSelector((state) => state.auth.user)
   const [prompt, setPrompt] = useState("")
   const [selectedOccasions, setSelectedOccasions] = useState([])
-  const [selectedMoods, setSelectedMoods] = useState(["Romantic"])
-  const [selectedWeather, setSelectedWeather] = useState(["Sunny"])
+  const [selectedMoods, setSelectedMoods] = useState([])
+  const [selectedWeather, setSelectedWeather] = useState([])
 
   useEffect(() => {
     if (user) {

@@ -1,16 +1,13 @@
 import { Platform } from 'react-native';
 import {
-  initConnection,
-  fetchProducts,
-  requestPurchase,
-  finishTransaction,
-  purchaseUpdatedListener,
   purchaseErrorListener,
+  requestPurchase,
 } from 'react-native-iap';
+import * as RNIap from 'react-native-iap';
 
-const subscriptionSkus = Platform.select({
+export const subscriptionSkus = Platform.select({
   android: ['rai_basic', 'rai_pro'],
-  ios: ['rai_basic', 'rai_pro'],
+  ios: ['rai_basic_month', 'rai_basic_year', 'rai_pro_month', 'rai_pro_year'],
 });
 
 /**
@@ -20,11 +17,9 @@ const subscriptionSkus = Platform.select({
  */
 export const initializeIAP = async () => {
   try {
-    const result = await initConnection();
-    console.log('IAP Connection initialized:', result);
-    return result;
+    return await initConnection();
   } catch (err) {
-    console.error('Error initializing IAP:', err);
+    console.error('IAP: Connection Error:', err);
     return false;
   }
 };
@@ -35,11 +30,9 @@ export const initializeIAP = async () => {
  */
 export const fetchSubscriptions = async () => {
   try {
-    const subscriptions = await fetchProducts({ skus: subscriptionSkus, type: 'subs' });
-    console.log('Subscriptions fetched:', subscriptions);
-    return subscriptions;
+    return await fetchProducts({ skus: subscriptionSkus, type: 'subs' });
   } catch (err) {
-    console.error('Error fetching subscriptions:', err);
+    console.error('IAP: Fetch Error:', err);
     return [];
   }
 };
@@ -53,21 +46,20 @@ export const fetchSubscriptions = async () => {
  */
 export const buySubscription = async (sku, basePlanId, offerToken) => {
   try {
-    const purchase = await requestPurchase({
+    const requestPayload = {
       request: {
-        android: {
-          subscriptionOffers: [{ sku, offerToken }],
-        },
-        ios: {
-          sku
+        apple: { sku },
+        google: {
+          skus: [sku],
+          ...(offerToken ? { subscriptionOffers: [{ sku, offerToken }] } : {})
         }
       },
       type: 'subs'
-    });
-    console.log('Subscription request sent:', purchase);
-    return purchase;
+    };
+
+    return await requestPurchase(requestPayload);
   } catch (err) {
-    console.error('Error requesting subscription:', err);
+    console.error('IAP: Request Error:', err);
     throw err;
   }
 };

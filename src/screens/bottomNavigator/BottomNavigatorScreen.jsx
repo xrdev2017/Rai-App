@@ -301,7 +301,12 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           <View
             style={[
               styles.modalContainer,
-              { marginBottom: responsiveHeight(2) + insets.bottom }
+              {
+                marginBottom:
+                  Platform.OS === "ios"
+                    ? responsiveHeight(9) + insets.bottom
+                    : responsiveHeight(8)
+              }
             ]}
           >
             <View
@@ -374,7 +379,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
               }
             ]}
           >
-            <Plus size={responsiveHeight(6)} color="#fff" strokeWidth={1.5} />
+            <Plus size={responsiveHeight(3.5)} color="#fff" strokeWidth={2} />
           </AnimatedPressable>
         </View>
       </View>
@@ -418,12 +423,11 @@ const styles = StyleSheet.create({
   },
   tabBarContainer: {
     position: "absolute",
-    bottom: 10,
+    bottom: 0,
     left: 0,
     right: 0,
     paddingHorizontal: responsiveWidth(4),
-    paddingBottom:
-      Platform.OS === "ios" ? responsiveHeight(4) : responsiveHeight(2),
+    paddingBottom: Platform.OS === "ios" ? 0 : responsiveHeight(2),
     backgroundColor: "transparent",
     zIndex: 1000
   },
@@ -471,12 +475,16 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   plusButton: {
-    width: responsiveHeight(7),
-    height: responsiveHeight(7),
-    borderRadius: responsiveHeight(3.5),
+    width: responsiveHeight(6.2),
+    height: responsiveHeight(6.2),
+    borderRadius: responsiveHeight(3.1),
     alignItems: "center",
     justifyContent: "center",
-    shadowColor: "#8E54FE"
+    shadowColor: "#8E54FE",
+    elevation: 5,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5
   },
   modalOverlay: {
     flex: 1,
