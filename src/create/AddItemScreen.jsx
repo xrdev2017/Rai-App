@@ -125,11 +125,15 @@ const AddItemScreen = () => {
   const [createAddItem, { isLoading }] = useCreateAddItemMutation();
 
   const handleCategorySelect = (selected) => {
-    setValue("category", selected || "");
+    // If selected is an object, store its ID
+    const categoryValue = typeof selected === "object" ? selected?._id : selected;
+    setValue("category", categoryValue || "");
   };
 
   const handleMaterialSelect = (selected) => {
-    setValue("material", selected || "");
+    // If selected is an object, store its ID
+    const materialValue = typeof selected === "object" ? selected?._id : selected;
+    setValue("material", materialValue || "");
   };
 
   const handleSeasonSelect = (selectedSeason) => {
@@ -152,15 +156,6 @@ const AddItemScreen = () => {
   } = useGetAllMaterialQuery();
 
   const handleApply = async (data) => {
-    // console.log("LINE AT 657", data);
-
-    // if (!image && itemTitle && itemBrand && category && material && season) {
-    //   setError("root", {
-    //     type: "addItem",
-    //     message: t("addItem.errorMessage"),
-    //   });
-    //   return;
-    // }
     try {
       const formData = new FormData();
 
@@ -187,7 +182,16 @@ const AddItemScreen = () => {
         });
       }
 
-      // console.log("LINE AT 690", formData);
+      console.log("Submitting CreateItem FormData (with IDs):", {
+        title: data.itemTitle,
+        brand: data.itemBrand,
+        category: data.category,
+        material: data.material,
+        season: data.season,
+        style: data.itemStyle,
+        colors: data.itemColors,
+        hasImage: !!image
+      });
 
       const response = await createAddItem(formData).unwrap();
 
@@ -197,8 +201,6 @@ const AddItemScreen = () => {
       });
     } catch (err) {
       const errorMessage = err?.data?.message || t("addItem.errorMessage");
-      // console.log("LINE AT 198", err, errorMessage);
-
       setError("root", {
         type: "addItem",
         message: errorMessage,
@@ -378,6 +380,7 @@ const AddItemScreen = () => {
                 loadingText={t("addItem.loadingCategories")}
                 error={categoryError}
                 errorText={t("addItem.failedCategories")}
+                returnFullObject={true}
               />
 
               {/* Material */}
@@ -390,6 +393,7 @@ const AddItemScreen = () => {
                 loadingText={t("addItem.loadingMaterials")}
                 error={materialError}
                 errorText={t("addItem.failedMaterials")}
+                returnFullObject={true}
               />
 
               {/* Colors */}

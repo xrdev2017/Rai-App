@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authReducer from "./reducers/authReducer.js";
+import aiStylistReducer from "./reducers/aiStylistReducer.js";
 import { baseApi } from "./baseApi.js";
 
 import {
@@ -20,11 +21,12 @@ const persistedConfig = {
   key: "root",
   version: 1,
   storage: AsyncStorage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "aiStylist"],
 };
 
 const combinedReducer = combineReducers({
   auth: authReducer,
+  aiStylist: aiStylistReducer,
   [baseApi.reducerPath]: baseApi.reducer,
 });
 

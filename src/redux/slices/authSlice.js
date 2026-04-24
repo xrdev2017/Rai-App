@@ -342,6 +342,21 @@ export const authSlice = baseApi.injectEndpoints({
     getProfileUpdate: builder.query({
       query: () => `profile/getProfile`,
       providesTags: ["UpdateProfile"],
+      async onQueryStarted(arg, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          if (data) {
+            // Flatten the response so that user properties are at the top level
+            // but the subscription object is also preserved.
+            const userData = data.user 
+              ? { ...data.user, subscription: data.subscription } 
+              : data;
+            dispatch(setUser(userData));
+          }
+        } catch (error) {
+          // console.error("Get Profile Error:", error);
+        }
+      },
     }),
 
     googleAppleSignin: builder.mutation({
@@ -467,6 +482,7 @@ export const {
   // get profile update
 
   useGetProfileUpdateQuery,
+  useLazyGetProfileUpdateQuery,
 
   useGoogleAppleSigninMutation,
 

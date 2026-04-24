@@ -230,11 +230,13 @@ const AddItemEditScreen = () => {
   };
 
   const handleCategorySelect = (selected) => {
-    setValue("category", selected[0] || "");
+    const categoryValue = typeof selected === "object" ? selected?._id : selected;
+    setValue("category", categoryValue || "");
   };
 
   const handleMaterialSelect = (selected) => {
-    setValue("material", selected[0] || "");
+    const materialValue = typeof selected === "object" ? selected?._id : selected;
+    setValue("material", materialValue || "");
   };
 
   const handleSeasonSelect = (selectedSeason) => {
@@ -307,7 +309,7 @@ const AddItemEditScreen = () => {
   // console.log("LINE AT 756", title, brand, selectedColors);
 
   return (
-    <SafeAreaView className="flex-1 bg-white dark:bg-darkSurfacePrimary/90">
+    <SafeAreaView class="flex-1 bg-white dark:bg-darkSurfacePrimary/90">
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -431,6 +433,7 @@ const AddItemEditScreen = () => {
                 loadingText="Loading categories..."
                 error={categoryError}
                 errorText="Failed to load categories"
+                returnFullObject={true}
               />
 
               <CustomBottomSheet
@@ -442,6 +445,7 @@ const AddItemEditScreen = () => {
                 loadingText="Loading materials..."
                 error={materialError}
                 errorText="Failed to load materials"
+                returnFullObject={true}
               />
 
               <ColorPalette

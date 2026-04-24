@@ -92,6 +92,29 @@ export const addItemSlice = baseApi.injectEndpoints({
       },
       invalidatesTags: ["DeleteAddItem"],
     }),
+
+    getAiGeneratedOutfits: builder.query({
+      query: ({ page = 1, limit = 10, search = "" } = {}) => {
+        let url = `outfits/getAiGeneratedOutfit?page=${page}&limit=${limit}`;
+        if (search && search.trim()) {
+          url += `&search=${search.trim()}`;
+        }
+        return url;
+      },
+      providesTags: ["CreateOutfit"],
+      meta: { skipAuth: false },
+    }),
+
+    virtualTryOn: builder.mutation({
+      query: ({ formData, userId }) => ({
+        url: `virtualTryOn/try-on`,
+        method: "POST",
+        body: formData,
+        headers: {
+          "user_id": userId
+        }
+      })
+    })
   }),
 
   overrideExisting: true,
@@ -113,4 +136,7 @@ export const {
   useGetAllBrandsQuery,
 
   useDeleteItemMutation,
+
+  useGetAiGeneratedOutfitsQuery,
+  useVirtualTryOnMutation
 } = addItemSlice;

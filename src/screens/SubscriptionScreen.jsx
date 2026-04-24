@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import {
   View,
   Text,
@@ -71,7 +71,7 @@ const PremiumProBackground = ({ borderRadius = 10 }) => (
           fy="100%"
           gradientUnits="userSpaceOnUse"
         >
-          <Stop offset="0" stopColor="#2563EB" stopOpacity="0.2" />
+          <Stop offset="0" stopColor="#8E54FE" stopOpacity="0.2" />
           <Stop offset="1" stopColor="#FFFFFF" stopOpacity="0" />
         </RadialGradient>
         <Filter id="noiseFilter">
@@ -123,7 +123,7 @@ const SubscriptionScreen = () => {
   const navigation = useNavigation()
   const { isDarkMode } = useTheme()
   const [billingCycle, setBillingCycle] = useState("monthly") // 'monthly' or 'yearly'
-  const [selectedPlan, setSelectedPlan] = useState("free") // 'free', 'basic', 'pro'
+  const [selectedPlan, setSelectedPlan] = useState(null);
   
   const [subscriptions, setSubscriptions] = useState([])
   const [loading, setLoading] = useState(false)
@@ -166,6 +166,7 @@ const SubscriptionScreen = () => {
           console.log('✅ IAP: Purchase completed and acknowledged');
           
           if (isLocalPurchase.current) {
+            isLocalPurchase.current = false;
             try {
               if (Platform.OS === 'ios') {
                 console.log('🚀 IAP: Verifying iOS purchase with backend for transaction:', purchase.transactionId);
@@ -187,7 +188,6 @@ const SubscriptionScreen = () => {
               console.error('❌ IAP Backend Verification Error:', verifyErr);
               Alert.alert("Purchase Warning", "Purchase was successful, but we had trouble activating it on our server. Please contact support if your features don't unlock.");
             }
-            isLocalPurchase.current = false;
           } else {
             console.log("ℹ️ IAP: Recovered transaction processed silently.");
             if (refetchProfile) refetchProfile();
@@ -212,7 +212,38 @@ const SubscriptionScreen = () => {
     };
   }, [refetchProfile]);
 
-  const currentUserPlan = user?.plan || "free"; 
+  const currentUserPlan = React.useMemo(() => {
+    const sub = user?.subscription;
+    if (sub && (sub.status === "active" || sub.status === "trialing")) {
+      if (sub.productId.startsWith("rai_basic")) return "rai_basic";
+      if (sub.productId.startsWith("rai_pro")) return "rai_pro";
+    }
+    return user?.plan || "free";
+  }, [user]);
+
+  const currentPlanCycle = React.useMemo(() => {
+    const sub = user?.subscription;
+    if (!sub || (sub.status !== "active" && sub.status !== "trialing")) {
+      return "monthly"; // Free users or inactive subscriptions defaults to monthly tab
+    }
+    
+    const productId = (sub.productId || "").toLowerCase();
+    if (productId.includes("year")) return "yearly";
+    if (productId.includes("month")) return "monthly";
+    
+    // Fallback/Android specific check if interval is provided
+    return sub.interval === "year" ? "yearly" : "monthly";
+  }, [user]);
+
+  useEffect(() => {
+    if (currentUserPlan && currentPlanCycle === billingCycle) {
+      setSelectedPlan("current_plan_selection");
+    } else {
+      setSelectedPlan(null);
+    }
+  }, [currentUserPlan, billingCycle, currentPlanCycle]);
+
+
 
   const getRealPlanData = (planId) => {
     if (Platform.OS === 'ios') {
@@ -262,8 +293,8 @@ const SubscriptionScreen = () => {
   }
 
   const handlePurchase = async () => {
-    if (selectedPlan === "free") {
-      Alert.alert("Info", "You are already on the Free plan.")
+    if (selectedPlan === "current_plan_selection") {
+      Alert.alert("Info", "You are already on this plan.")
       return
     }
 
@@ -303,15 +334,27 @@ const SubscriptionScreen = () => {
     }
   }
 
-  const freePlan = {
-    id: "free",
-    name: i18n.t("subscription.freePlanName"),
+  const currentPlanData = {
+    id: "current_plan_selection",
+    name: currentUserPlan === "rai_basic" 
+      ? i18n.t("subscription.basicPlanName") 
+      : currentUserPlan === "rai_pro" 
+        ? i18n.t("subscription.proPlanName") 
+        : i18n.t("subscription.freePlanName"),
     price: "$0",
     features: [
-      { text: i18n.t("subscription.plans.free.feature1"), available: true },
-      { text: i18n.t("subscription.plans.free.feature2"), available: true }
+      { 
+        text: `${user?.subscription?.ai_genereted ?? user?.credits?.aiStylist?.limit ?? (currentUserPlan === "free" ? 3 : 0)} ${i18n.t("subscription.plans.free.feature1").replace(/^\d+\s/, "")}`, 
+        available: true,
+        icon: "circle_right"
+      },
+      { 
+        text: `${user?.subscription?.vto ?? user?.credits?.vto?.limit ?? (currentUserPlan === "free" ? 3 : 0)} ${i18n.t("subscription.plans.free.feature2").replace(/^\d+\s/, "")}`, 
+        available: true,
+        icon: "circle_right"
+      }
     ],
-    badge: currentUserPlan === "free" ? i18n.t("subscription.currentBadge") : null
+    badge: i18n.t("subscription.currentBadge")
   }
 
   const getPlanPrice = (planId, defaultPrice) => {
@@ -319,6 +362,44 @@ const SubscriptionScreen = () => {
     const realData = getRealPlanData(planId)
     return realData?.price || defaultPrice
   }
+
+  const proSavingsPercentage = React.useMemo(() => {
+    try {
+      let monthlyPrice = 0;
+      let yearlyPrice = 0;
+
+      if (Platform.OS === 'ios') {
+        const monthlySub = subscriptions.find(s => (s?.productId || s?.id) === 'rai_pro_month');
+        const yearlySub = subscriptions.find(s => (s?.productId || s?.id) === 'rai_pro_year');
+        
+        monthlyPrice = monthlySub?.price ? parseFloat(monthlySub.price) : 0;
+        yearlyPrice = yearlySub?.price ? parseFloat(yearlySub.price) : 0;
+      } else {
+        const proSub = subscriptions.find(s => (s?.productId || s?.id) === 'rai_pro');
+        if (proSub) {
+          const offers = (proSub.subscriptionOfferDetailsAndroid || proSub.subscriptionOfferDetails || []);
+          const monthlyOffer = offers.find(o => o.basePlanId === 'pro-month');
+          const yearlyOffer = offers.find(o => o.basePlanId === 'pro-year');
+          
+          const getPriceFromOffer = (offer) => {
+            const phase = offer?.pricingPhases?.pricingPhaseList?.[offer?.pricingPhases?.pricingPhaseList?.length - 1];
+            return phase?.priceAmountMicros ? parseFloat(phase.priceAmountMicros) / 1000000 : 0;
+          };
+          
+          monthlyPrice = getPriceFromOffer(monthlyOffer);
+          yearlyPrice = getPriceFromOffer(yearlyOffer);
+        }
+      }
+
+      if (monthlyPrice > 0 && yearlyPrice > 0) {
+        const savings = Math.round((1 - (yearlyPrice / (monthlyPrice * 12))) * 100);
+        return savings > 0 ? savings : 25;
+      }
+    } catch (err) {
+      console.error("Error calculating savings:", err);
+    }
+    return 25; // Default fallback
+  }, [subscriptions]);
 
   const PLANS = [
     {
@@ -338,7 +419,7 @@ const SubscriptionScreen = () => {
           icon: "lock"
         }
       ],
-      badge: currentUserPlan === "rai_basic" ? i18n.t("subscription.currentBadge") : null
+      badge: currentUserPlan === "rai_basic" ? null : null
     },
     {
       id: "rai_pro",
@@ -358,44 +439,44 @@ const SubscriptionScreen = () => {
           icon: "shirt"
         }
       ],
-      badge: currentUserPlan === "rai_pro" ? i18n.t("subscription.currentBadge") : i18n.t("subscription.recommendedBadge")
+      badge: currentUserPlan === "rai_pro" ? null : i18n.t("subscription.recommendedBadge")
     }
   ]
 
-  const PlanCard = ({ plan }) => {
-    const isSelected = selectedPlan === plan.id
+  const renderPlanCard = (plan, isSelected, isCurrentPlan = false) => {
     const isPremium = plan.isPremium
 
     return (
       <TouchableOpacity
+        key={plan.id}
         onPress={() => setSelectedPlan(plan.id)}
-        activeOpacity={0.9}
+        activeOpacity={1}
         className="mb-4"
         style={{
           borderRadius: 12,
           backgroundColor:
-            plan.id === "pro"
+            (plan.id === "rai_pro" && !isCurrentPlan)
               ? isDarkMode
                 ? "#2D2633"
-                : "#FFFFFF"
+                : "#F8F6FF"
               : isDarkMode
                 ? "#2D2633"
                 : "#F5F4F7",
-          borderWidth: 2,
+          borderWidth: isSelected ? 2 : 0,
           borderColor: isSelected ? "#8E54FE" : "transparent",
-          marginHorizontal: plan.id === "pro" ? -1 : 0
+          marginHorizontal: 2,
         }}
       >
         <View
           style={[
             StyleSheet.absoluteFill,
-            { overflow: "hidden", borderRadius: 10 }
+            { overflow: "hidden", borderRadius: 12 }
           ]}
         >
-          {plan.id === "pro" && <PremiumProBackground borderRadius={10} />}
+          {plan.id === "rai_pro" && !isCurrentPlan && <PremiumProBackground borderRadius={12} />}
 
           {/* Recommended Badge at bottom right */}
-          {plan.id === "pro" && (
+          {plan.id === "rai_pro" && !isCurrentPlan && (
             <View
               className={`absolute px-4 py-1.5 ${
                 isDarkMode ? "bg-[#8E54FE]" : "bg-[#8E54FE]"
@@ -417,8 +498,10 @@ const SubscriptionScreen = () => {
           <View className="flex-row items-center justify-between">
             <View className="flex-1 mr-4">
               <View className="flex-row justify-between items-center mb-2">
-                <View className="flex-row items-center">
+                <View className="flex-row items-center flex-1 mr-2">
                   <Text
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
                     className={`text-[19px] font-Bold ${
                       isDarkMode ? "text-white" : "text-[#05001D]"
                     }`}
@@ -505,7 +588,7 @@ const SubscriptionScreen = () => {
                     />
                   )}
                   <Text
-                    className={`text-[14.5px] font-Medium ${
+                    className={`text-[14.5px] font-Medium flex-1 ${
                       feature.available
                         ? isDarkMode
                           ? "text-white"
@@ -662,7 +745,7 @@ const SubscriptionScreen = () => {
             </Text>
             <View className="bg-[#8E54FE] px-2 py-1 rounded-full">
               <Text className="text-[8px] font-Bold text-white uppercase">
-                {i18n.t("subscription.save25")}
+                {i18n.t("subscription.save25").replace("25", proSavingsPercentage)}
               </Text>
             </View>
           </TouchableOpacity>
@@ -670,10 +753,8 @@ const SubscriptionScreen = () => {
 
         {/* Plans List */}
         <View className="mb-8">
-          <PlanCard plan={freePlan} />
-          {PLANS.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
-          ))}
+          {currentPlanCycle === billingCycle && renderPlanCard(currentPlanData, selectedPlan === "current_plan_selection", true)}
+          {PLANS.map((plan) => renderPlanCard(plan, selectedPlan === plan.id))}
         </View>
 
         {/* Purchase Button Area */}
@@ -702,7 +783,7 @@ const SubscriptionScreen = () => {
           />
           <TouchableOpacity
             onPress={handlePurchase}
-            disabled={purchasing}
+            disabled={purchasing || !selectedPlan}
             activeOpacity={0.8}
             className="flex-row items-center justify-center w-full"
             style={{
@@ -710,7 +791,7 @@ const SubscriptionScreen = () => {
               height: 48,
               borderRadius: 12,
               zIndex: 1,
-              opacity: purchasing ? 0.7 : 1
+              opacity: (purchasing || !selectedPlan) ? 0.7 : 1
             }}
           >
             {purchasing ? (
@@ -741,10 +822,10 @@ const SubscriptionScreen = () => {
 
         {/* Footer Links */}
         <View
-          className="flex-row items-center justify-between"
-          style={{ paddingHorizontal: 40 }}
+          className="flex-row items-center justify-center"
+          style={{ paddingHorizontal: 20, flexWrap: "wrap" }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity style={{ marginHorizontal: 15, marginVertical: 5 }}>
             <Text
               className="text-[13px] font-Bold text-[#8E54FE]"
               style={{ textDecorationLine: "underline" }}
@@ -753,7 +834,7 @@ const SubscriptionScreen = () => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={{ marginHorizontal: 15, marginVertical: 5 }}>
             <Text
               className="text-[13px] font-SemiBold text-[#90A1B9]"
               style={{ textDecorationLine: "underline" }}

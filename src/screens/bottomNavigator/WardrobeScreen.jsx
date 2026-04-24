@@ -238,7 +238,7 @@ export const Sidebar = ({
                         isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"
                       }`}
                     >
-                      {user?.name || user?.email.split("@")[0]}
+                      {user?.name || user?.email?.split("@")[0] || ""}
                     </Text>
                     <Text
                       className={`text-sm font-Regular mb-1 ${
@@ -706,7 +706,7 @@ const WardrobeScreen = () => {
             <Text
               className={`text-lg font-Bold ${isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"}`}
             >
-              {t("greeting", { name: user?.name || user?.email.split("@")[0] })}
+              {t("greeting", { name: user?.name || user?.email?.split("@")[0] || "" })}
             </Text>
             <Text
               className={`text-base font-Medium ${

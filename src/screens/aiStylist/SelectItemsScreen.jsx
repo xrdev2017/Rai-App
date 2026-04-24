@@ -234,7 +234,7 @@ const SelectItemsContent = () => {
         onPress={() => setValue("selectedItem", isSelected ? null : item)}
         className="flex-1 max-w-[48%]"
       >
-        <View className="bg-surfaceSecondary rounded-lg aspect-square items-center justify-center overflow-hidden relative">
+        <View className={`${isDarkMode ? "bg-darkSurfaceSecondary" : "bg-surfaceSecondary"} rounded-lg aspect-square items-center justify-center overflow-hidden relative`}>
           {item?.image ? (
             <Image
               source={{ uri: item?.image }}
@@ -242,8 +242,8 @@ const SelectItemsContent = () => {
               resizeMode="cover"
             />
           ) : (
-            <View className="w-full h-full bg-gray-200 items-center justify-center">
-              <Text className="text-gray-500">No Image</Text>
+            <View className={`w-full h-full ${isDarkMode ? "bg-darkSurfaceTertiary" : "bg-gray-200"} items-center justify-center`}>
+              <Text className="text-gray-500">{t("common.noImage")}</Text>
             </View>
           )}
 
@@ -266,13 +266,13 @@ const SelectItemsContent = () => {
             className={`text-lg font-SemiBold ${isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"}`}
             numberOfLines={1}
           >
-            {item?.title || "Untitled Item"}
+            {item?.title || t("common.untitledItem")}
           </Text>
           <Text
             className={`text-md font-Medium ${isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"}`}
             numberOfLines={1}
           >
-            {item?.brand || "No Brand"}
+            {item?.brand || t("common.noBrand")}
           </Text>
         </View>
       </Pressable>
@@ -292,7 +292,7 @@ const SelectItemsContent = () => {
           <ArrowLeft size={20} color="#5700FE" />
         </Pressable>
         <Text className={`flex-1 text-center text-xl font-Bold ${isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"}`}>
-          Select Items
+          {t("common.selectItems")}
         </Text>
         <View style={{ width: responsiveWidth(10) }} />
       </View>
@@ -309,7 +309,7 @@ const SelectItemsContent = () => {
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
                 className={`flex-1 text-[16px] px-3 font-Medium ${isDarkMode ? "text-darkTextPrimary" : "text-[#100D1F]"}`}
-                placeholder={"Search"}
+                placeholder={t("common.search")}
                 placeholderTextColor="#C5BFD1"
                 value={value}
                 onChangeText={onChange}
@@ -337,10 +337,10 @@ const SelectItemsContent = () => {
             data={categoryData}
             renderItem={({ item }) => (
               <Pressable
-                className={`px-6 py-2.5 rounded-full border ${selectedTab === item.name ? "bg-surfaceAction border-surfaceAction" : "bg-white border-[#E5E5E5]"}`}
+                className={`px-6 py-2.5 rounded-full border ${selectedTab === item.name ? "bg-surfaceAction border-surfaceAction" : `${isDarkMode ? "bg-darkSurfaceSecondary border-darkBorderTertiary" : "bg-white border-[#E5E5E5]"}`}`}
                 onPress={() => setSelectedTab(item.name)}
               >
-                <Text className={`text-[16px] font-Medium ${selectedTab === item.name ? "text-white" : "text-[#100D1F]"}`}>
+                <Text className={`text-[16px] font-Medium ${selectedTab === item.name ? "text-white" : isDarkMode ? "text-darkTextPrimary" : "text-[#100D1F]"}`}>
                   {item.name}
                 </Text>
               </Pressable>
@@ -358,7 +358,7 @@ const SelectItemsContent = () => {
         {allItemLoading ? (
           <ActivityIndicator size="large" color="#5700FE" />
         ) : allItemError ? (
-          <Text className="text-red-500 text-center">Failed to load items</Text>
+          <Text className="text-red-500 text-center">{t("common.failedToLoad")}</Text>
         ) : (
           <FlatList
             data={filteredItems}
@@ -379,7 +379,7 @@ const SelectItemsContent = () => {
         className={`p-4 rounded-2xl justify-center items-center shadow-md ${selectedItem ? "bg-surfaceAction" : "bg-gray-300"}`}
       >
         <Text className={`text-xl font-Medium ${selectedItem ? "text-white" : "text-gray-500"}`}>
-          Apply
+          {t("common.apply")}
         </Text>
       </Pressable>
 

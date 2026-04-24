@@ -226,7 +226,11 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
       })
 
       if (!event.defaultPrevented) {
-        navigation.navigate(route.name)
+        if (route.name === "AIStylist") {
+          navigation.navigate("AIStylist", { resetTab: true })
+        } else {
+          navigation.navigate(route.name)
+        }
       }
     }
 
@@ -290,7 +294,15 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
   }
 
   return (
-    <View style={[styles.tabBarContainer, { paddingBottom: insets.bottom }]}>
+    <View
+      style={[
+        styles.tabBarContainer,
+        {
+          paddingBottom:
+            Platform.OS === "ios" ? insets.bottom : insets.bottom + responsiveHeight(2)
+        }
+      ]}
+    >
       {/* Modal */}
       <Modal transparent visible={modalVisible} animationType="fade">
         <Pressable
@@ -305,7 +317,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                 marginBottom:
                   Platform.OS === "ios"
                     ? responsiveHeight(9) + insets.bottom
-                    : responsiveHeight(8)
+                    : responsiveHeight(8) + insets.bottom + responsiveHeight(2)
               }
             ]}
           >

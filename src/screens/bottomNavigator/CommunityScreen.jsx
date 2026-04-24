@@ -474,7 +474,7 @@ const CommunityScreen = () => {
                 isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"
               }`}
             >
-              {t("greeting", { name: user?.name || user?.email.split("@")[0] })}
+              {t("greeting", { name: user?.name || user?.email?.split("@")[0] || "" })}
             </Text>
             <Text
               className={`text-base font-Medium ${

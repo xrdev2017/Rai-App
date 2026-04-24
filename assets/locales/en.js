@@ -15,6 +15,17 @@ const en = {
     signup: "Sign Up",
     footer: "@2025 Rai"
   },
+  common: {
+    noImage: "No Image",
+    untitledItem: "Untitled Item",
+    noBrand: "No Brand",
+    failedToLoad: "Failed to load data",
+    error: "Error",
+    somethingWentWrong: "Something went wrong. Please try again.",
+    search: "Search",
+    apply: "Apply",
+    selectItems: "Select Items",
+  },
   itemTab: {
     text1: "Hit the plus button to start adding to your wardrobe",
     text2: "No items in your wardrobe yet so let's go"
@@ -486,8 +497,9 @@ const en = {
       occasion: "Occasion",
       mood: "Mood",
       weather: "Weather",
+      validationError: "Please describe what you want or select some quick ideas.",
       usageLimit: "Usage Limit",
-      generationsLeft: "{{count}}/3 generations left today",
+      generationsLeft: "{{remaining}}/{{total}} generations left today",
       upgrade: "Upgrade for Unlimited",
       generate: "Generate Outfit",
       occasions: {
@@ -516,11 +528,14 @@ const en = {
         Snowy: "Snowy",
         Humid: "Humid",
         Windy: "Windy"
+      },
+      error: {
+        limitReached: "You've reached your daily limit. Please upgrade your plan for more generations."
       }
     },
     virtualTryOnTab: {
       outfitSection: "1. The Outfit",
-      outfitIdPlaceholder: "Enter Outfit ID",
+      outfitIdPlaceholder: "Enter Outfit Name",
       addButton: "Add",
       or: "OR",
       selectedItem: "Selected Item",
@@ -530,7 +545,11 @@ const en = {
       uploadFullBody: "Upload full-body photo",
       lightingAdvice: "Ensure good lighting for best results",
       selectFromLibrary: "Select from Library",
-      tryButton: "Try This Outfit On Me"
+      tryButton: "Try This Outfit On Me",
+      noMatchingOutfits: "No matching outfits found",
+      alertTitle: "Selection Required",
+      selectOutfitError: "Please select an outfit or enter an Outfit ID",
+      selectPhotoError: "Please upload your photo"
     }
   },
   subscription: {

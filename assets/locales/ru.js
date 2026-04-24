@@ -15,6 +15,17 @@ const ru = {
     signup: "Регистрация",
     footer: "@2025 Rai",
   },
+  common: {
+    noImage: "Нет изображения",
+    untitledItem: "Без названия",
+    noBrand: "Без бренда",
+    failedToLoad: "Не удалось загрузить данные",
+    error: "Ошибка",
+    somethingWentWrong: "Что-то пошло не так. Пожалуйста, попробуйте еще раз.",
+    search: "Поиск",
+    apply: "Применить",
+    selectItems: "Выберите элементы",
+  },
   account: {
     title: "Аккаунт",
     quickSettings: "Быстрые настройки",
@@ -423,7 +434,7 @@ const ru = {
       mood: "Настроение",
       weather: "Погода",
       usageLimit: "Лимит использования",
-      generationsLeft: "Осталось {{count}}/3 генераций на сегодня",
+      generationsLeft: "Осталось {{remaining}}/{{total}} генераций на сегодня",
       upgrade: "Обновить до безлимитного",
       generate: "Создать образ",
       occasions: {
@@ -453,6 +464,9 @@ const ru = {
         Humid: "Влажно",
         Windy: "Ветрено",
       },
+      error: {
+        limitReached: "Вы достигли своего дневного лимита. Пожалуйста, обновите тарифный план для новых генераций."
+      }
     },
     virtualTryOnTab: {
       outfitSection: "1. Образ",
@@ -467,6 +481,10 @@ const ru = {
       lightingAdvice: "Обеспечьте хорошее освещение для лучших результатов",
       selectFromLibrary: "Выбрать из библиотеки",
       tryButton: "Примерить этот образ",
+      noMatchingOutfits: "Соответствующих нарядов не найдено",
+      alertTitle: "Требуется выбор",
+      selectOutfitError: "Пожалуйста, выберите наряд или введите ID наряда",
+      selectPhotoError: "Пожалуйста, загрузите свою фотографию"
     },
   },
   subscription: {

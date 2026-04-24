@@ -15,6 +15,17 @@ const es = {
     signup: "Registrarse",
     footer: "@2025 Rai",
   },
+  common: {
+    noImage: "Sin imagen",
+    untitledItem: "Sin título",
+    noBrand: "Sin marca",
+    failedToLoad: "Error al cargar datos",
+    error: "Error",
+    somethingWentWrong: "Algo salió mal. Por favor, inténtalo de nuevo.",
+    search: "Buscar",
+    apply: "Aplicar",
+    selectItems: "Seleccionar artículos",
+  },
 
   itemTab: {
     text1: "Toca el botón más para empezar a agregar a tu guardarropa",
@@ -485,7 +496,7 @@ const es = {
       mood: "Estado de ánimo",
       weather: "Clima",
       usageLimit: "Límite de uso",
-      generationsLeft: "{{count}}/3 generaciones restantes hoy",
+      generationsLeft: "{{remaining}}/{{total}} generaciones restantes hoy",
       upgrade: "Mejorar para Ilimitado",
       generate: "Generar Outfit",
       occasions: {
@@ -515,6 +526,9 @@ const es = {
         Humid: "Húmedo",
         Windy: "Ventoso",
       },
+      error: {
+        limitReached: "Has alcanzado tu límite diario. Por favor, mejora tu plan para obtener más generaciones."
+      }
     },
     virtualTryOnTab: {
       outfitSection: "1. El Outfit",
@@ -529,6 +543,10 @@ const es = {
       lightingAdvice: "Asegura buena iluminación para mejores resultados",
       selectFromLibrary: "Seleccionar de la Biblioteca",
       tryButton: "Pruébame este Outfit",
+      noMatchingOutfits: "No se encontraron atuendos coincidentes",
+      alertTitle: "Selección requerida",
+      selectOutfitError: "Por favor, selecciona un atuendo o ingresa un ID de atuendo",
+      selectPhotoError: "Por favor, sube tu foto"
     },
   },
   subscription: {

@@ -13,6 +13,9 @@ import SetProfileScreen from "../screens/auth/SetProfileScreen";
 
 import AddItemScreen from "../create/AddItemScreen";
 import SelectItemsScreen from "../screens/aiStylist/SelectItemsScreen";
+import SelectAIItemsScreen from "../screens/aiStylist/SelectAIItemsScreen";
+import TryOnResultScreen from "../screens/aiStylist/TryOnResultScreen";
+import AIOutfitResultScreen from "../screens/aiStylist/AIOutfitResultScreen";
 import BottomNavigatorScreen from "../screens/bottomNavigator/BottomNavigatorScreen";
 import CreateLookbookScreen from "../create/CreateLookbookScreen";
 import AddItemEditScreen from "../editCard/AddItemEditScreen";
@@ -71,6 +74,12 @@ const AppNavigator = () => {
           {/* add items */}
           <Stack.Screen name="AddItem" component={AddItemScreen} />
           <Stack.Screen name="SelectItems" component={SelectItemsScreen} />
+          <Stack.Screen name="SelectAIItems" component={SelectAIItemsScreen} />
+          <Stack.Screen name="TryOnResult" component={TryOnResultScreen} />
+          <Stack.Screen
+            name="AIOutfitResult"
+            component={AIOutfitResultScreen}
+          />
           <Stack.Screen
             name="CreateLookbook"
             component={CreateLookbookScreen}

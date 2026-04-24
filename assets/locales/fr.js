@@ -15,6 +15,17 @@ const fr = {
     signup: "S'inscrire",
     footer: "@2025 Rai",
   },
+  common: {
+    noImage: "Aucune image",
+    untitledItem: "Sans titre",
+    noBrand: "Aucune marque",
+    failedToLoad: "Échec du chargement des données",
+    error: "Erreur",
+    somethingWentWrong: "Une erreur est survenue. Veuillez réessayer.",
+    search: "Rechercher",
+    apply: "Appliquer",
+    selectItems: "Sélectionner des articles",
+  },
 
   itemTab: {
     text1:
@@ -489,7 +500,7 @@ const fr = {
       mood: "Humeur",
       weather: "Météo",
       usageLimit: "Limite d'utilisation",
-      generationsLeft: "{{count}}/3 générations restantes aujourd'hui",
+      generationsLeft: "{{remaining}}/{{total}} générations restantes aujourd'hui",
       upgrade: "Passer à l'illimité",
       generate: "Générer la tenue",
       occasions: {
@@ -533,6 +544,10 @@ const fr = {
       lightingAdvice: "Assurez un bon éclairage pour de meilleurs résultats",
       selectFromLibrary: "Choisir dans la bibliothèque",
       tryButton: "Essayer cette tenue sur moi",
+      noMatchingOutfits: "Aucune tenue correspondante trouvée",
+      alertTitle: "Sélection requise",
+      selectOutfitError: "Veuillez sélectionner une tenue ou saisir un ID de tenue",
+      selectPhotoError: "Veuillez télécharger votre photo"
     },
   },
   subscription: {

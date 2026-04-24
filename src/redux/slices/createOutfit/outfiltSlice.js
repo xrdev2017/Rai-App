@@ -61,6 +61,28 @@ export const createOutfitSlice = baseApi.injectEndpoints({
       },
       invalidatesTags: ["DeleteAddOutfit"],
     }),
+
+    getOutfit: builder.mutation({
+      query: (data) => {
+        return {
+          url: `outfits/getOutfit`,
+          method: "POST",
+          body: data,
+        };
+      },
+      invalidatesTags: ["CreateOutfit"],
+    }),
+    
+    updateOutfitFavorite: builder.mutation({
+      query: ({ id, favorite }) => {
+        return {
+          url: `outfits/updateOutfitFavorite/${id}`,
+          method: "PATCH",
+          body: { favorite },
+        };
+      },
+      invalidatesTags: ["UpdateOutfitItem"],
+    }),
   }),
 
   overrideExisting: true,
@@ -71,4 +93,6 @@ export const {
   useGetAllOutfitQuery,
   useUpdateCreateOutfitMutation,
   useDeleteOutfitMutation,
+  useGetOutfitMutation,
+  useUpdateOutfitFavoriteMutation,
 } = createOutfitSlice;

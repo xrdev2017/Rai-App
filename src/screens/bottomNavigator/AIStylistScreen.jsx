@@ -1,15 +1,52 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import AIStylistTab from "../../components/AIStylist/AIStylistTab"
 import VirtualTryOnTab from "../../components/AIStylist/VirtualTryOnTab"
 import { useTheme } from "../../utils/ThemeContext"
 import { useTranslation } from "react-i18next"
+import { useRoute, useFocusEffect, useNavigation } from "@react-navigation/native"
+import { useLazyGetProfileUpdateQuery } from "../../redux/slices/authSlice"
+import { useSelector } from "react-redux"
 
 const AIStylistScreen = () => {
   const { t } = useTranslation()
+  const navigation = useNavigation()
+  const route = useRoute()
   const [activeTab, setActiveTab] = useState("aiStylist")
   const { isDarkMode } = useTheme()
+  const user = useSelector((state) => state.auth.user)
+
+  const [resetKey, setResetKey] = useState(0)
+
+  const [triggerProfileUpdate, { data: profileData, isFetching: isRefreshingProfile, isError: isProfileError, error: profileError }] = useLazyGetProfileUpdateQuery()
+
+  useEffect(() => {
+    // Component level side effects if any
+  }, [])
+
+  useFocusEffect(
+    React.useCallback(() => {
+      // Manual trigger for profile refresh on every focus, bypassing cache
+      triggerProfileUpdate(undefined, false)
+
+      const shouldReset = !route.params?.selectedItem;
+      
+      if (shouldReset) {
+        setResetKey(prev => prev + 1)
+      }
+
+      if (route.params?.activeTab) {
+        setActiveTab(route.params.activeTab)
+        navigation.setParams({ activeTab: undefined })
+      } else if (route.params?.selectedItem) {
+        setActiveTab("virtualTryOn")
+      } else if (route.params?.resetTab) {
+        setActiveTab("aiStylist")
+        navigation.setParams({ resetTab: undefined })
+      }
+    }, [triggerProfileUpdate, route.params?.activeTab, route.params?.selectedItem, route.params?.resetTab])
+  )
 
   return (
     <SafeAreaView
@@ -99,7 +136,11 @@ const AIStylistScreen = () => {
         </View>
       </View>
 
-      {activeTab === "aiStylist" ? <AIStylistTab /> : <VirtualTryOnTab />}
+      {activeTab === "aiStylist" ? (
+        <AIStylistTab key={`ai-${resetKey}`} />
+      ) : (
+        <VirtualTryOnTab />
+      )}
     </SafeAreaView>
   )
 }

@@ -4,10 +4,7 @@ import { jwtDecode } from "jwt-decode";
 
 // Create the base query without reauth logic
 export const baseQuery = fetchBaseQuery({
-  // baseUrl: "https://golf-pro-backend.onrender.com/api/v1",
-  baseUrl:
-    "https://backendrai.rairus.com/",
-  // baseUrl: "http://13.48.43.0:5050/api/v1",
+  baseUrl: "https://api.raieurope.com/",
   prepareHeaders: (headers, { getState, endpoint }) => {
     // Check if endpoint has skipAuth meta
     const state = getState();

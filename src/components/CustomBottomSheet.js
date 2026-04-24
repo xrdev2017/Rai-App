@@ -56,8 +56,7 @@ const SelectionBottomSheet = ({
 
   // Toggle selection
   const toggleSelection = (item) => {
-    const itemName = item?.name || item;
-    setLocalSelected(itemName);
+    setLocalSelected(item);
   };
 
   // Reset everything
@@ -73,22 +72,18 @@ const SelectionBottomSheet = ({
     setFilteredItems(data);
   };
 
-  // Check if item is selected - now compares by name only
+  // Check if item is selected
   const isItemSelected = (item) => {
     if (!localSelected || !item) return false;
 
     const itemName = item?.name || item;
-    return localSelected === itemName;
+    const localName = localSelected?.name || localSelected;
+    return localName === itemName;
   };
 
   // Handle apply
   const handleApply = () => {
-    if (localSelected) {
-      const selectedName = localSelected?.name || localSelected;
-      onApply(selectedName); // Pass just the string
-    } else {
-      onApply(null);
-    }
+    onApply(localSelected);
   };
 
   return (
@@ -218,15 +213,27 @@ const CustomBottomSheet = ({
   loadingText = i18n.t("loading"),
   error = null,
   errorText = i18n.t("load_error"),
+  returnFullObject = false,
 }) => {
   const [showModal, setShowModal] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   // Update selectedItem when initialSelected or data changes
-
-  // console.log("CustomBottomSheet data:", data);
-
-  // console.log("CustomBottomSheet selectedItem:", selectedItem);
+  useEffect(() => {
+    if (initialSelected && initialSelected.length > 0 && data.length > 0) {
+      const initial = initialSelected[0];
+      const found = data.find((item) => {
+        const itemName = item?.name || item;
+        const itemId = item?._id || item;
+        return itemName === initial || itemId === initial;
+      });
+      if (found) {
+        setSelectedItem(found);
+      }
+    } else if (initialSelected === null || (initialSelected && initialSelected.length === 0)) {
+      setSelectedItem(null);
+    }
+  }, [initialSelected, data]);
 
   const getSelectedLabel = () => {
     if (!selectedItem) return i18n.t("not_selected");
@@ -243,7 +250,7 @@ const CustomBottomSheet = ({
 
     setSelectedItem(selected);
     setShowModal(false);
-    if (onChange) onChange(selectedName);
+    if (onChange) onChange(returnFullObject ? selected : selectedName);
   };
 
   return (

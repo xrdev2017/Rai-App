@@ -23,7 +23,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CustomSwitch from "./tabComponents/CustomSwitch";
 import CustomLanguageSelector from "./tabComponents/CustomLanguageSelector";
 import { useNavigation } from "@react-navigation/native";
-import { useFormContext } from "react-hook-form";
+
 import { useLogoutMutation } from "../../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -42,7 +42,7 @@ const AccountScreen = () => {
     i18n.language || "en",
   );
   const navigation = useNavigation();
-  const { handleSubmit, clearErrors, setError } = useFormContext();
+
   const [logout] = useLogoutMutation();
   const dispatch = useDispatch();
   const notificationsEnabled = useSelector(
@@ -99,17 +99,11 @@ const AccountScreen = () => {
   };
 
   const handleLogout = async () => {
-    clearErrors();
     try {
-      const response = await logout().unwrap();
+      await logout().unwrap();
       dispatch(clearAuth());
-      // console.log("Logout Success:", response);
     } catch (err) {
-      // console.log("Logout Error:", err);
-      setError("root", {
-        type: "manual",
-        message: err?.data?.message || "Logout failed",
-      });
+      console.error("Logout Error:", err);
     }
   };
 
@@ -346,7 +340,7 @@ const AccountScreen = () => {
           <MenuItem
             Icon={LogOut}
             title={i18n.t("account.logout")}
-            onPress={googleApple ? googleSignOut : handleSubmit(handleLogout)}
+            onPress={googleApple ? googleSignOut : handleLogout}
           />
         </View>
       </ScrollView>
