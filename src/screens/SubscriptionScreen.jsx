@@ -10,11 +10,12 @@ import {
   Image,
   Platform,
   Alert,
-  ActivityIndicator
+  ActivityIndicator,
+  Linking
 } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { useSelector, useDispatch } from "react-redux"
-import { useGetProfileUpdateQuery, useVerifyIosPurchaseMutation, useVerifyAndroidPurchaseMutation } from "../redux/slices/authSlice"
+import { useGetProfileUpdateQuery, useVerifyIosPurchaseMutation, useVerifyAndroidPurchaseMutation, useRestoreIosPurchaseMutation, useRestoreAndroidPurchaseMutation } from "../redux/slices/authSlice"
 import {
   X,
   Star,
@@ -50,7 +51,8 @@ import {
   purchaseUpdatedListener,
   purchaseErrorListener,
   requestSubscription,
-  requestPurchase
+  requestPurchase,
+  getAvailablePurchases
 } from "react-native-iap"
 import { subscriptionSkus } from "../utils/iapManager"
 
@@ -128,12 +130,15 @@ const SubscriptionScreen = () => {
   const [subscriptions, setSubscriptions] = useState([])
   const [loading, setLoading] = useState(false)
   const [purchasing, setPurchasing] = useState(false)
+  const [restoring, setRestoring] = useState(false)
   const isLocalPurchase = useRef(false)
 
   const { user } = useSelector((state) => state.auth)
   const { refetch: refetchProfile } = useGetProfileUpdateQuery()
   const [verifyIosPurchase] = useVerifyIosPurchaseMutation()
   const [verifyAndroidPurchase] = useVerifyAndroidPurchaseMutation()
+  const [restoreIosPurchase] = useRestoreIosPurchaseMutation()
+  const [restoreAndroidPurchase] = useRestoreAndroidPurchaseMutation()
 
   React.useEffect(() => {
     const loadProducts = async () => {
@@ -199,10 +204,18 @@ const SubscriptionScreen = () => {
     });
 
     const purchaseErrorSubscription = purchaseErrorListener((error) => {
-      if (error?.code !== "E_USER_CANCELLED") {
-        console.error(`❌ IAP Purchase Error [Code: ${error.code}]:`, error.message);
-        Alert.alert("Purchase Error", error.message || "An error occurred.");
+      // Ignore user cancellation errors
+      if (
+        error?.code === "E_USER_CANCELLED" || 
+        error?.code === "USER_CANCELLED" || 
+        error?.message?.toLowerCase().includes("cancel")
+      ) {
+        console.log("ℹ️ IAP: Purchase cancelled by user");
+        return;
       }
+
+      console.error(`❌ IAP Purchase Error [Code: ${error.code}]:`, error.message);
+      Alert.alert("Purchase Error", error.message || "An error occurred.");
     });
 
     return () => {
@@ -325,14 +338,63 @@ const SubscriptionScreen = () => {
 
       await requestPurchase(purchaseRequest);
     } catch (err) {
-      if (err?.code !== "E_USER_CANCELLED") {
-        console.error("❌ IAP: Purchase failed:", err.message);
-        Alert.alert("Error", `Purchase failed: ${err.message}`)
+      if (
+        err?.code === "E_USER_CANCELLED" || 
+        err?.code === "USER_CANCELLED" || 
+        err?.message?.toLowerCase().includes("cancel")
+      ) {
+        console.log("ℹ️ IAP: Purchase cancelled by user");
+        return;
       }
+      console.error("❌ IAP: Purchase failed:", err.message);
+      Alert.alert("Error", `Purchase failed: ${err.message}`)
     } finally {
       setPurchasing(false)
     }
   }
+
+  const handleRestore = async () => {
+    try {
+      setRestoring(true);
+      console.log(`🚀 IAP: Calling restore API for ${Platform.OS}...`);
+      
+      const availablePurchases = await getAvailablePurchases();
+      
+      if (!availablePurchases || availablePurchases.length === 0) {
+        Alert.alert("Info", "No previous purchases found to restore.");
+        return;
+      }
+
+      console.log(`✅ IAP: Found ${availablePurchases.length} purchases. Processing...`);
+
+      // Process each purchase found
+      for (const purchase of availablePurchases) {
+        if (Platform.OS === 'ios') {
+          console.log('🚀 IAP: Restoring iOS purchase:', purchase.transactionId);
+          await restoreIosPurchase({ 
+            transactionId: purchase.transactionId 
+          }).unwrap();
+        } else {
+          console.log('🚀 IAP: Restoring Android purchase:', purchase.productId);
+          await restoreAndroidPurchase({
+            purchaseToken: purchase.purchaseToken,
+            productId: purchase.productId,
+            packageName: 'com.rai.fashion' // Ensure this matches your package ID
+          }).unwrap();
+        }
+      }
+
+      if (refetchProfile) await refetchProfile();
+      Alert.alert("Success", "Your purchases have been restored!");
+    } catch (err) {
+      console.error("❌ IAP: Restore Error:", err);
+      // Detailed error for debugging
+      const errorMessage = err?.data?.message || err?.message || "Failed to restore purchases.";
+      Alert.alert("Restore Error", errorMessage);
+    } finally {
+      setRestoring(false);
+    }
+  };
 
   const currentPlanData = {
     id: "current_plan_selection",
@@ -825,16 +887,27 @@ const SubscriptionScreen = () => {
           className="flex-row items-center justify-center"
           style={{ paddingHorizontal: 20, flexWrap: "wrap" }}
         >
-          <TouchableOpacity style={{ marginHorizontal: 15, marginVertical: 5 }}>
-            <Text
-              className="text-[13px] font-Bold text-[#8E54FE]"
-              style={{ textDecorationLine: "underline" }}
-            >
-              {i18n.t("subscription.cancelAnytime")}
-            </Text>
+          <TouchableOpacity 
+            onPress={handleRestore}
+            disabled={restoring}
+            style={{ marginHorizontal: 15, marginVertical: 5, minWidth: 60, alignItems: 'center' }}
+          >
+            {restoring ? (
+              <ActivityIndicator size="small" color="#8E54FE" />
+            ) : (
+              <Text
+                className="text-[13px] font-Bold text-[#8E54FE]"
+                style={{ textDecorationLine: "underline" }}
+              >
+                {i18n.t("subscription.restorePurchases")}
+              </Text>
+            )}
           </TouchableOpacity>
 
-          <TouchableOpacity style={{ marginHorizontal: 15, marginVertical: 5 }}>
+          <TouchableOpacity 
+            onPress={() => Linking.openURL('https://rai.fashion/privacy-policy')}
+            style={{ marginHorizontal: 15, marginVertical: 5 }}
+          >
             <Text
               className="text-[13px] font-SemiBold text-[#90A1B9]"
               style={{ textDecorationLine: "underline" }}

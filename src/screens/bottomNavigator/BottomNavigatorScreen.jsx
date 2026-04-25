@@ -544,3 +544,32 @@ const styles = StyleSheet.create({
 })
 
 export default BottomNavigatorScreen
+    overflow: "hidden",
+    borderWidth: 1,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 12
+  },
+  modalItem: {
+    paddingVertical: responsiveHeight(1.8),
+    paddingHorizontal: 20,
+    borderBottomWidth: 1
+  },
+  modalText: {
+    textAlign: "center",
+    fontWeight: "600",
+    fontSize: 16
+  },
+  modalTriangle: {
+    width: 25,
+    height: 25,
+    transform: [{ rotate: "45deg" }],
+    marginTop: -responsiveHeight(2.2),
+    borderRadius: 4,
+    marginRight: responsiveWidth(7) - 12.5
+  }
+})
+
+export default BottomNavigatorScreen

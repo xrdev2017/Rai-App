@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import {
   Upload,
   CheckCircle2,
@@ -7,7 +7,7 @@ import {
   Trash2,
   X,
 } from "lucide-react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -41,6 +41,7 @@ import {
   useGetAllStyleQuery,
 } from "../redux/slices/addItem/addItemSlice.js";
 import { useTranslation } from "react-i18next";
+import ProcessingOverlay from "../components/ProcessingOverlay";
 
 const ViewImageModal = ({
   isImageViewVisible,
@@ -81,6 +82,7 @@ const AddItemScreen = () => {
     getValues,
     clearErrors,
     setError,
+    reset,
     formState: { errors },
   } = useFormContext();
 
@@ -91,6 +93,18 @@ const AddItemScreen = () => {
   const [isImageViewVisible, setIsImageViewVisible] = useState(false);
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [showFolderModal, setShowFolderModal] = useState(false);
+  const [showProcessing, setShowProcessing] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const mutationPromiseRef = useRef(null);
+
+  useFocusEffect(
+    React.useCallback(() => {
+      reset();
+      setImage(null);
+      setProgress(0);
+      setShowProcessing(false);
+    }, [reset])
+  );
 
   const pickImage = async () => {
     try {
@@ -155,6 +169,15 @@ const AddItemScreen = () => {
     error: materialError,
   } = useGetAllMaterialQuery();
 
+  const handleCancelProcessing = () => {
+    if (mutationPromiseRef.current) {
+      mutationPromiseRef.current.abort();
+      mutationPromiseRef.current = null;
+    }
+    setShowProcessing(false);
+    setProgress(0);
+  };
+
   const handleApply = async (data) => {
     try {
       const formData = new FormData();
@@ -193,12 +216,23 @@ const AddItemScreen = () => {
         hasImage: !!image
       });
 
-      const response = await createAddItem(formData).unwrap();
+      setShowProcessing(true);
+      setProgress(0);
 
-      navigation.navigate("BottomNavigator", {
-        screen: "Wardrobe",
-        params: { tab: "Items" },
-      });
+      const promise = createAddItem(formData);
+      mutationPromiseRef.current = promise;
+      
+      const response = await promise.unwrap();
+      mutationPromiseRef.current = null;
+      
+      setProgress(1);
+      setTimeout(() => {
+        setShowProcessing(false);
+        navigation.navigate("BottomNavigator", {
+          screen: "Wardrobe",
+          params: { tab: "Items" },
+        });
+      }, 500);
     } catch (err) {
       const errorMessage = err?.data?.message || t("addItem.errorMessage");
       setError("root", {
@@ -210,6 +244,12 @@ const AddItemScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white dark:bg-darkSurfacePrimary/90">
+      <ProcessingOverlay 
+        visible={showProcessing} 
+        current={progress === 1 ? 1 : 0} 
+        total={1} 
+        onCancel={handleCancelProcessing}
+      />
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}

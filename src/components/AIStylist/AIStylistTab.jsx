@@ -229,7 +229,6 @@ const AIStylistTab = () => {
       <ScrollView
         className="flex-1 px-5"
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: responsiveHeight(10) }}
       >
         {/* Hero Title */}
         <View className="mb-6 mt-2">
@@ -405,14 +404,23 @@ const AIStylistTab = () => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity className="mb-10" onPress={handleGenerate}>
+      </ScrollView>
+
+      {/* Sticky Bottom Button */}
+      <View 
+        className="px-5 pt-3"
+        style={{ 
+          paddingBottom: responsiveHeight(10), // Clear the bottom tab bar
+        }}
+      >
+        <TouchableOpacity onPress={handleGenerate}>
           <View className="items-center bg-[#8E54FE] rounded-[10px] py-3.5">
             <Text className="text-base font-Bold text-white">
               {t("aiStylist.aiStylistTab.generate")}
             </Text>
           </View>
         </TouchableOpacity>
-      </ScrollView>
+      </View>
     </View>
   )
 }

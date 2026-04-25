@@ -17,7 +17,7 @@ import {
   responsiveHeight,
   responsiveWidth
 } from "react-native-responsive-dimensions"
-import { Camera, Shirt, Image as ImageIcon, Plus, X } from "lucide-react-native"
+import { Camera, Shirt, Image as ImageIcon, Plus, X, ArrowRight } from "lucide-react-native"
 import Svg, { Path, Circle } from "react-native-svg"
 import { useTheme } from "../../utils/ThemeContext"
 import { useNavigation, useRoute } from "@react-navigation/native"
@@ -210,7 +210,8 @@ const VirtualTryOnTab = () => {
         const resultData = {
           originalImage: selectedImage,
           resultImage: response.data.tryOnImage,
-          outfitImageUrl: activeOutfit?.image
+          outfitImageUrl: activeOutfit?.image,
+          outfitId: response?.data?._id || response?.data?.id || response?.data?.outfitId || activeOutfit?._id || null
         }
 
         dispatch(setLastVtoResult(resultData))
@@ -249,10 +250,9 @@ const VirtualTryOnTab = () => {
         resetVto()
       }} />
       <ScrollView
-        className="flex-1 px-5"
+      className="flex-1 px-5"
       showsVerticalScrollIndicator={false}
       style={{ zIndex: 1 }}
-      contentContainerStyle={{ paddingBottom: responsiveHeight(15) }}
       keyboardShouldPersistTaps="always"
     >
       <View className="mt-4" />
@@ -476,13 +476,14 @@ const VirtualTryOnTab = () => {
               </TouchableOpacity>
             </View>
           ) : (
-            <View className="flex-1 items-center justify-center py-12">
-              <TouchableOpacity
-                onPress={pickImage}
-                className="bg-[#8E54FE] w-16 h-16 rounded-full items-center justify-center mb-5"
-              >
+            <TouchableOpacity 
+              onPress={pickImage}
+              className="flex-1 items-center justify-center py-12"
+              activeOpacity={0.7}
+            >
+              <View className="bg-[#8E54FE] w-16 h-16 rounded-full items-center justify-center mb-5">
                 <CameraPlusIcon size={30} color="white" />
-              </TouchableOpacity>
+              </View>
 
               <Text
                 className="text-[18px] font-Bold mb-2 text-center"
@@ -497,19 +498,55 @@ const VirtualTryOnTab = () => {
                 {t("aiStylist.virtualTryOnTab.lightingAdvice")}
               </Text>
 
-              <TouchableOpacity onPress={pickImage}>
-                <Text className="text-[#8E54FE] font-Medium text-[14px] text-center">
-                  {t("aiStylist.virtualTryOnTab.selectFromLibrary")}
-                </Text>
-              </TouchableOpacity>
-            </View>
+              <Text className="text-[#8E54FE] font-Medium text-[14px] text-center">
+                {t("aiStylist.virtualTryOnTab.selectFromLibrary")}
+              </Text>
+            </TouchableOpacity>
           )}
         </View>
       </View>
 
+      {/* Footer / Usage Limit Card */}
+      <View
+        className="flex-row items-center justify-between mb-8 p-3 rounded-[10px]"
+        style={{ backgroundColor: isDarkMode ? "#2D2633" : "#F8F8F8" }}
+      >
+        <View className="flex-1 mr-4">
+          <Text className="text-[10px] font-Bold text-[#8E54FE] mb-1">
+            {t("aiStylist.aiStylistTab.usageLimit")}
+          </Text>
+          <Text
+            className="text-sm font-Bold"
+            style={{ color: isDarkMode ? "#F5F4F7" : "#101010" }}
+          >
+            {t("aiStylist.aiStylistTab.vtoLeft", { 
+              remaining: (user?.credits?.vto?.limit || 0) - (user?.credits?.vto?.used || 0),
+              total: user?.credits?.vto?.limit || 0
+            })}
+          </Text>
+        </View>
+        <TouchableOpacity 
+          onPress={() => navigation.navigate("Subscription")}
+          className="flex-row items-center rounded-full px-4 py-2 bg-[#05001D] dark:bg-black"
+        >
+          <Text className="text-[10px] font-Bold text-white mr-2">
+            {t("aiStylist.aiStylistTab.upgrade")}
+          </Text>
+          <ArrowRight size={12} color="white" />
+        </TouchableOpacity>
+      </View>
+
       {/* Try This Outfit Button */}
+    </ScrollView>
+
+    {/* Sticky Bottom Button */}
+    <View 
+      className="px-5 pt-3"
+      style={{ 
+        paddingBottom: responsiveHeight(10), // Clear the bottom tab bar
+      }}
+    >
       <TouchableOpacity
-        className="mt-2 mb-10"
         onPress={handleTryOutfit}
         disabled={showAnalyzing}
       >
@@ -530,7 +567,7 @@ const VirtualTryOnTab = () => {
           )}
         </View>
       </TouchableOpacity>
-    </ScrollView>
+    </View>
     </View>
   )
 }

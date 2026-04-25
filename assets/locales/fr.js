@@ -500,7 +500,8 @@ const fr = {
       mood: "Humeur",
       weather: "Météo",
       usageLimit: "Limite d'utilisation",
-      generationsLeft: "{{remaining}}/{{total}} générations restantes aujourd'hui",
+      generationsLeft: "{{remaining}}/{{total}} générations restantes",
+      vtoLeft: "{{remaining}}/{{total}} crédits VTO restants",
       upgrade: "Passer à l'illimité",
       generate: "Générer la tenue",
       occasions: {
@@ -530,6 +531,22 @@ const fr = {
         Humid: "Humide",
         Windy: "Venteux",
       },
+      analyzing: {
+        title: "Analyse de vos préférences de style...",
+        label1: "GÉNÉRATION",
+        label2: "ANALYSE",
+        label3: "PRÉPARATION",
+        label4: "CHOIX DES TISSUS",
+        label5: "HARMONISATION DES COULEURS",
+        label6: "CRÉATION DE LA TENUE",
+        label7: "SÉLECTION DU LOOK",
+        label8: "FINALISATION",
+        label9: "SCAN DU GARDE-ROBE",
+        label10: "OPTIMISATION DE LA COUPE",
+        label11: "POLISSAGE DU LOOK",
+        label12: "PRESQUE FINI",
+        cancel: "Annuler"
+      }
     },
     virtualTryOnTab: {
       outfitSection: "1. La Tenue",
@@ -560,7 +577,7 @@ const fr = {
     purchaseNow: "Acheter maintenant",
     footerNote:
       "Gratuit pendant 3 jours, puis facturé automatiquement sauf annulation.",
-    cancelAnytime: "Annulation à tout moment",
+    restorePurchases: "Restaurer",
     privacyPolicy: "Politique de confidentialité",
     currentBadge: "ACTUAL",
     recommendedBadge: "RECOMMANDÉ",

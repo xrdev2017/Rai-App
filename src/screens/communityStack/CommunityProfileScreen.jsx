@@ -324,11 +324,23 @@ const CommunityProfileScreen = () => {
   const ProfileInfo = ({ post }) => (
     <View className="flex-row items-center justify-between px-5 ">
       <View className="flex-row items-center">
-        <Image
-          source={{ uri: post?.profileImage }}
-          className="rounded-full mr-3 border border-borderAction"
-          style={{ width: responsiveWidth(13), height: responsiveWidth(13) }}
-        />
+        <View className="relative mr-3">
+          <Image
+            source={{ uri: post?.profileImage }}
+            className="rounded-full border border-borderAction"
+            style={{ width: responsiveWidth(13), height: responsiveWidth(13) }}
+          />
+          {post?._id === user?._id &&
+            (post?.subscription?.status === "active" ||
+              post?.subscription?.status === "trialing") && (
+              <Image
+                source={require("../../../assets/images/ic_blue_tick.png")}
+                className="absolute"
+                style={{ width: 15, height: 15, bottom: 2, right: 2 }}
+                resizeMode="contain"
+              />
+            )}
+        </View>
         <View>
           <Text className="text-[16px] font-Medium text-textPrimary">
             {post?.name}

@@ -7,6 +7,7 @@ const aiStylistReducer = createSlice({
       originalImage: null,
       resultImage: null,
       outfitImageUrl: null,
+      outfitId: null,
     },
   },
   reducers: {
@@ -23,6 +24,7 @@ const aiStylistReducer = createSlice({
         originalImage: null,
         resultImage: null,
         outfitImageUrl: null,
+        outfitId: null,
       };
     },
   },

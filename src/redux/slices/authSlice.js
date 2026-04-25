@@ -419,6 +419,20 @@ export const authSlice = baseApi.injectEndpoints({
         }
       },
     }),
+    restoreIosPurchase: builder.mutation({
+      query: (credentials) => ({
+        url: "verify/restore/ios",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
+    restoreAndroidPurchase: builder.mutation({
+      query: (credentials) => ({
+        url: "verify/restore/android",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
   }),
 
   overrideExisting: true,
@@ -489,4 +503,6 @@ export const {
   useUpdateProfileInfoMutation,
   useVerifyIosPurchaseMutation,
   useVerifyAndroidPurchaseMutation,
+  useRestoreIosPurchaseMutation,
+  useRestoreAndroidPurchaseMutation,
 } = authSlice;

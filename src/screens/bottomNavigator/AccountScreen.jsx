@@ -217,12 +217,23 @@ const AccountScreen = () => {
       >
         {/* Profile Section */}
         <View className={`items-center px-5 `}>
-          <Image
-            source={{ uri: user?.profileImage }}
-            className={`w-20 h-20 rounded-full mb-4 border ${
-              isDarkMode ? "border-darkBorderAction" : "border-borderAction"
-            }`}
-          />
+          <View className="relative mb-4">
+            <Image
+              source={{ uri: user?.profileImage }}
+              className={`w-20 h-20 rounded-full border ${
+                isDarkMode ? "border-darkBorderAction" : "border-borderAction"
+              }`}
+            />
+            {(user?.subscription?.status === "active" ||
+              user?.subscription?.status === "trialing") && (
+              <Image
+                source={require("../../../assets/images/ic_blue_tick.png")}
+                className="absolute"
+                style={{ width: 15, height: 15, bottom: 4, right: 4 }}
+                resizeMode="contain"
+              />
+            )}
+          </View>
           <Text
             className={`text-lg font-SemiBold mb-1 ${
               isDarkMode ? "text-darkTextPrimary" : "text-textPrimary"

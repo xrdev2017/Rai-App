@@ -496,7 +496,8 @@ const es = {
       mood: "Estado de ánimo",
       weather: "Clima",
       usageLimit: "Límite de uso",
-      generationsLeft: "{{remaining}}/{{total}} generaciones restantes hoy",
+      generationsLeft: "{{remaining}}/{{total}} generaciones restantes",
+      vtoLeft: "{{remaining}}/{{total}} créditos de VTO restantes",
       upgrade: "Mejorar para Ilimitado",
       generate: "Generar Outfit",
       occasions: {
@@ -528,6 +529,22 @@ const es = {
       },
       error: {
         limitReached: "Has alcanzado tu límite diario. Por favor, mejora tu plan para obtener más generaciones."
+      },
+      analyzing: {
+        title: "Analizando tus preferencias de estilo...",
+        label1: "GENERANDO",
+        label2: "ANALIZANDO",
+        label3: "PREPARANDO",
+        label4: "SELECCIONANDO TELAS",
+        label5: "COMBINANDO COLORES",
+        label6: "DISEÑANDO OUTFIT",
+        label7: "CURANDO LOOK",
+        label8: "FINALIZANDO",
+        label9: "ESCANEO DE ARMARIO",
+        label10: "OPTIMIZANDO AJUSTE",
+        label11: "PULIENDO LOOK",
+        label12: "CASI LISTO",
+        cancel: "Cancelar"
       }
     },
     virtualTryOnTab: {
@@ -559,7 +576,7 @@ const es = {
     purchaseNow: "Comprar ahora",
     footerNote:
       "Gratis por 3 días, luego se factura automáticamente a menos que se cancele.",
-    cancelAnytime: "Cancela en cualquier momento",
+    restorePurchases: "Restaurar",
     privacyPolicy: "Política de privacidad",
     currentBadge: "ACTUAL",
     recommendedBadge: "RECOMENDADO",

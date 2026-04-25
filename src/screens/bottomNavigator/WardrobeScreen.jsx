@@ -215,16 +215,27 @@ export const Sidebar = ({
                   gap: responsiveWidth(3),
                 }}
               >
-                <Image
-                  source={{
-                    uri: user?.profileImage,
-                  }}
-                  className=" rounded-full mb-3 border border-[#5700FE]"
-                  style={{
-                    width: responsiveWidth(14),
-                    height: responsiveWidth(14),
-                  }}
-                />
+                <View className="relative">
+                  <Image
+                    source={{
+                      uri: user?.profileImage,
+                    }}
+                    className="rounded-full border border-[#5700FE]"
+                    style={{
+                      width: responsiveWidth(14),
+                      height: responsiveWidth(14),
+                    }}
+                  />
+                  {(user?.subscription?.status === "active" ||
+                    user?.subscription?.status === "trialing") && (
+                    <Image
+                      source={require("../../../assets/images/ic_blue_tick.png")}
+                      className="absolute"
+                      style={{ width: 15, height: 15, bottom: 2, right: 2 }}
+                      resizeMode="contain"
+                    />
+                  )}
+                </View>
                 <View className="gap-1">
                   <View
                     className={`border-b gap-1 ${
@@ -677,7 +688,7 @@ const WardrobeScreen = () => {
   return (
     <SafeAreaView
       className={`flex-1  ${isDarkMode ? "bg-darkSurfacePrimary/90" : "bg-white"}`}
-    style={{ paddingBottom: responsiveHeight(4) }}
+      style={{ paddingBottom: responsiveHeight(4) }}
     >
       {/* Header */}
       <View
@@ -699,7 +710,18 @@ const WardrobeScreen = () => {
                 }}
               />
             ) : (
-              <UserCircle2 size={34} color={isDarkMode ? "#fff" : "#000"} />
+              <View className="rounded-full border border-borderAction p-2">
+                <UserCircle2 size={34} color={isDarkMode ? "#fff" : "#000"} />
+              </View>
+            )}
+            {(user?.subscription?.status === "active" ||
+              user?.subscription?.status === "trialing") && (
+              <Image
+                source={require("../../../assets/images/ic_blue_tick.png")}
+                className="absolute"
+                style={{ width: 15, height: 15, bottom: 2, right: 2 }}
+                resizeMode="contain"
+              />
             )}
           </View>
           <View>

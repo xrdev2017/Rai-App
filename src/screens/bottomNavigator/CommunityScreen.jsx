@@ -454,18 +454,29 @@ const CommunityScreen = () => {
           onPress={() => setShowSidebar(true)}
           className="flex-row items-center"
         >
-          <View className="rounded-full mr-3 border border-borderAction">
+          <View className="relative mr-3">
             {user?.profileImage ? (
               <Image
                 source={{ uri: user?.profileImage }}
+                className="rounded-full border border-borderAction"
                 style={{
                   width: responsiveWidth(14),
                   height: responsiveWidth(14),
-                  borderRadius: 9999,
                 }}
               />
             ) : (
-              <UserCircle2 size={34} color={isDarkMode ? "#fff" : "#000"} />
+              <View className="rounded-full border border-borderAction p-2">
+                <UserCircle2 size={34} color={isDarkMode ? "#fff" : "#000"} />
+              </View>
+            )}
+            {(user?.subscription?.status === "active" ||
+              user?.subscription?.status === "trialing") && (
+              <Image
+                source={require("../../../assets/images/ic_blue_tick.png")}
+                className="absolute"
+                style={{ width: 15, height: 15, bottom: 2, right: 2 }}
+                resizeMode="contain"
+              />
             )}
           </View>
           <View>

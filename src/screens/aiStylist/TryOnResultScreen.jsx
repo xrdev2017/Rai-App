@@ -11,7 +11,9 @@ import {
   Platform,
   Pressable,
   Alert,
-  BackHandler
+  BackHandler,
+  Modal,
+  TextInput
 } from "react-native"
 import * as FileSystem from 'expo-file-system/legacy'
 import * as MediaLibrary from 'expo-media-library'
@@ -25,7 +27,9 @@ import {
 } from "react-native-responsive-dimensions"
 import { useDispatch, useSelector } from "react-redux"
 import { useVirtualTryOnMutation } from "../../redux/slices/addItem/addItemSlice"
+import { useCreateLookbookMutation } from "../../redux/slices/createLookbook/createLookbookSlice"
 import { setLastVtoResult, clearVtoResult } from "../../redux/reducers/aiStylistReducer"
+import { useTranslation } from "react-i18next"
 import { useTheme } from "../../utils/ThemeContext"
 
 const TryOnResultScreen = () => {
@@ -37,8 +41,10 @@ const TryOnResultScreen = () => {
   const { user } = useSelector((state) => state.auth)
   const { lastVtoResult } = useSelector((state) => state.aiStylist)
   const [virtualTryOn, { isLoading: isApiLoading }] = useVirtualTryOnMutation()
+  const [createLookbook, { isLoading: isCreatingLookbook }] = useCreateLookbookMutation()
+  const { t } = useTranslation()
   
-  const { originalImage, resultImage, outfitImageUrl } = lastVtoResult || {}
+  const { originalImage, resultImage, outfitImageUrl, outfitId } = lastVtoResult || {}
 
   const [activeTab, setActiveTab] = useState("tryon") // "original" or "tryon"
   const [isSaving, setIsSaving] = useState(false)
@@ -47,6 +53,8 @@ const TryOnResultScreen = () => {
   const [currentOutfitUrl, setCurrentOutfitUrl] = useState(outfitImageUrl)
   const [persistedOriginalImage, setPersistedOriginalImage] = useState(originalImage)
   const [isImageLoading, setIsImageLoading] = useState(false)
+  const [showLookbookModal, setShowLookbookModal] = useState(false)
+  const [lookbookTitle, setLookbookTitle] = useState("")
  
   useEffect(() => {
     // Sync local state if Redux state changes (e.g. initial result)
@@ -132,7 +140,8 @@ const TryOnResultScreen = () => {
         const updatedResult = {
           originalImage: finalOriginalImage,
           resultImage: response.data.tryOnImage,
-          outfitImageUrl: targetUrl
+          outfitImageUrl: targetUrl,
+          outfitId: response?.data?._id || response?.data?.id || response?.data?.outfitId || null
         }
         dispatch(setLastVtoResult(updatedResult))
         setDisplayResultImage(response.data.tryOnImage)
@@ -180,37 +189,33 @@ const TryOnResultScreen = () => {
     }, [])
   );
 
-  const handleSaveLook = async () => {
-    const { status } = await MediaLibrary.requestPermissionsAsync()
-    if (status !== 'granted') {
-      Alert.alert('Permission Denied', 'Please grant gallery permissions to save the look.')
-      return
-    }
+  const handleSaveLook = () => {
+    setShowLookbookModal(true);
+  }
 
+  const handleCreateLookbook = async () => {
+    if (!lookbookTitle.trim()) {
+      Alert.alert('Error', 'Please enter a name for the Lookbook');
+      return;
+    }
     try {
-      setIsSaving(true)
-      const imageUri = displayResultImage // Always save the try-on result
-      
-      if (!imageUri) {
-        throw new Error('Result image path is missing')
+      setIsSaving(true);
+      const lookbookData = {
+        name: lookbookTitle,
+      };
+      if (outfitId) {
+        lookbookData.outfits = outfitId;
       }
-      const filename = imageUri.split('/').pop()
-      const fileUri = `${FileSystem.documentDirectory}${filename}`
+      await createLookbook(lookbookData).unwrap();
+      setShowLookbookModal(false);
+      setLookbookTitle("");
       
-      const downloadRes = await FileSystem.downloadAsync(imageUri, fileUri)
-      
-      if (downloadRes.status === 200) {
-        // Save to gallery
-        await MediaLibrary.saveToLibraryAsync(downloadRes.uri)
-        Alert.alert('Success', 'Look saved to gallery!')
-      } else {
-        throw new Error('Download failed')
-      }
-    } catch (error) {
-      console.error('Save Error:', error)
-      Alert.alert('Error', 'Failed to save look. Please try again.')
+      Alert.alert('Success', 'Lookbook created successfully!');
+    } catch (err) {
+      console.error('Create Lookbook Error:', err);
+      Alert.alert('Error', err?.data?.error || err?.data?.message || 'Failed to add to Lookbook. Please try again.');
     } finally {
-      setIsSaving(false)
+      setIsSaving(false);
     }
   }
 
@@ -355,6 +360,62 @@ const TryOnResultScreen = () => {
           <ActivityIndicator size="large" color="#8E54FE" />
         </View>
       )}
+
+      {/* Save to Lookbook Modal */}
+      <Modal visible={showLookbookModal} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContainer, { backgroundColor: isDarkMode ? "#2D2633" : "white" }]}>
+            <Text style={[styles.modalTitle, { color: isDarkMode ? "#F5F4F7" : "#08002B" }]}>
+              {t("createLookbook.nameFolder", "Name your Lookbook")}
+            </Text>
+            
+            <TextInput
+              style={[
+                styles.modalInput, 
+                { 
+                  backgroundColor: isDarkMode ? "#3D3843" : "#F8F8F8",
+                  color: isDarkMode ? "#F5F4F7" : "#08002B",
+                  borderColor: isDarkMode ? "#5C526D" : "#E5E5E5"
+                }
+              ]}
+              placeholder={t("createLookbook.titlePlaceholder", "Lookbook Title")}
+              placeholderTextColor={isDarkMode ? "#A0A0A0" : "#C5BFD1"}
+              value={lookbookTitle}
+              onChangeText={setLookbookTitle}
+              autoCapitalize="none"
+            />
+
+            <Pressable
+              onPress={handleCreateLookbook}
+              disabled={isSaving || isCreatingLookbook}
+              style={[
+                styles.modalButton, 
+                (isSaving || isCreatingLookbook) ? { backgroundColor: "#A0A0A0" } : { backgroundColor: "#8E54FE" }
+              ]}
+            >
+              {isSaving || isCreatingLookbook ? (
+                <ActivityIndicator size="small" color="white" />
+              ) : (
+                <Text style={styles.modalButtonText}>
+                  {t("createLookbook.save", "Save")}
+                </Text>
+              )}
+            </Pressable>
+
+            <Pressable
+              onPress={() => {
+                setShowLookbookModal(false);
+                setLookbookTitle("");
+              }}
+              style={styles.modalCancelButton}
+            >
+              <Text style={styles.modalCancelText}>
+                {t("createLookbook.cancel", "Cancel")}
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </View>
   )
 }
@@ -485,6 +546,53 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "500"
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)"
+  },
+  modalContainer: {
+    width: "85%",
+    padding: 20,
+    borderRadius: 20,
+    gap: 16
+  },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    textAlign: "center",
+    marginBottom: 8
+  },
+  modalInput: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 16,
+    fontSize: 16,
+    fontWeight: "500"
+  },
+  modalButton: {
+    paddingVertical: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 8
+  },
+  modalButtonText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "600"
+  },
+  modalCancelButton: {
+    paddingVertical: 12,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  modalCancelText: {
+    color: "#EF4444",
+    fontSize: 16,
+    fontWeight: "600"
   }
 })
 

@@ -499,7 +499,8 @@ const en = {
       weather: "Weather",
       validationError: "Please describe what you want or select some quick ideas.",
       usageLimit: "Usage Limit",
-      generationsLeft: "{{remaining}}/{{total}} generations left today",
+      generationsLeft: "{{remaining}}/{{total}} generations left",
+      vtoLeft: "{{remaining}}/{{total}} VTO credits left",
       upgrade: "Upgrade for Unlimited",
       generate: "Generate Outfit",
       occasions: {
@@ -531,6 +532,22 @@ const en = {
       },
       error: {
         limitReached: "You've reached your daily limit. Please upgrade your plan for more generations."
+      },
+      analyzing: {
+        title: "Analyzing your style preferences...",
+        label1: "GENERATING",
+        label2: "ANALYZING",
+        label3: "PREPARING",
+        label4: "PICKING FABRICS",
+        label5: "MATCHING COLORS",
+        label6: "STYLING OUTFIT",
+        label7: "CURATING LOOK",
+        label8: "FINALIZING",
+        label9: "SCANNING WARDROBE",
+        label10: "OPTIMIZING FIT",
+        label11: "POLISHING LOOK",
+        label12: "ALMOST DONE",
+        cancel: "Cancel"
       }
     },
     virtualTryOnTab: {
@@ -561,7 +578,7 @@ const en = {
     save25: "SAVE 25%",
     purchaseNow: "Purchase Now",
     footerNote: "Free for 3 days, then billed automatically unless cancelled.",
-    cancelAnytime: "Cancel anytime",
+    restorePurchases: "Restore",
     privacyPolicy: "Privacy Policy",
     currentBadge: "CURRENT",
     recommendedBadge: "RECOMMENDED",

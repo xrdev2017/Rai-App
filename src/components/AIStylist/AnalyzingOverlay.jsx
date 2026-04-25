@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
 import { Sparkles } from "lucide-react-native"
 import { useTheme } from "../../utils/ThemeContext"
 import { useTranslation } from "react-i18next"
+import { responsiveHeight } from "react-native-responsive-dimensions"
 
 const { width } = Dimensions.get("window")
 
@@ -18,8 +19,25 @@ const AnalyzingOverlay = ({ visible, onCancel }) => {
   const { t } = useTranslation()
   const { isDarkMode } = useTheme()
   const progressAnim = useRef(new Animated.Value(0)).current
+  const [textIndex, setTextIndex] = useState(0)
+  
+  const messages = [
+    t("aiStylist.aiStylistTab.analyzing.label1", "GENERATING"),
+    t("aiStylist.aiStylistTab.analyzing.label2", "ANALYZING"),
+    t("aiStylist.aiStylistTab.analyzing.label3", "PREPARING"),
+    t("aiStylist.aiStylistTab.analyzing.label4", "PICKING FABRICS"),
+    t("aiStylist.aiStylistTab.analyzing.label5", "MATCHING COLORS"),
+    t("aiStylist.aiStylistTab.analyzing.label6", "STYLING OUTFIT"),
+    t("aiStylist.aiStylistTab.analyzing.label7", "CURATING LOOK"),
+    t("aiStylist.aiStylistTab.analyzing.label8", "FINALIZING"),
+    t("aiStylist.aiStylistTab.analyzing.label9", "SCANNING WARDROBE"),
+    t("aiStylist.aiStylistTab.analyzing.label10", "OPTIMIZING FIT"),
+    t("aiStylist.aiStylistTab.analyzing.label11", "POLISHING LOOK"),
+    t("aiStylist.aiStylistTab.analyzing.label12", "ALMOST DONE")
+  ]
 
   useEffect(() => {
+    let listenerId = null
     if (visible) {
       Animated.loop(
         Animated.sequence([
@@ -35,8 +53,25 @@ const AnalyzingOverlay = ({ visible, onCancel }) => {
           })
         ])
       ).start()
+
+      listenerId = progressAnim.addListener(({ value }) => {
+        if (value === 0) {
+          setTextIndex((prev) => {
+            if (prev < messages.length - 1) {
+              return prev + 1
+            }
+            return prev
+          })
+        }
+      })
     } else {
       progressAnim.setValue(0)
+      setTextIndex(0)
+      if (listenerId) progressAnim.removeListener(listenerId)
+    }
+
+    return () => {
+      if (listenerId) progressAnim.removeListener(listenerId)
     }
   }, [visible])
 
@@ -80,7 +115,7 @@ const AnalyzingOverlay = ({ visible, onCancel }) => {
             className="text-lg font-Bold text-center mb-8"
             style={{ color: isDarkMode ? "#F5F4F7" : "#08002B" }}
           >
-            {t("aiStylist.analyzing.title", "Analyzing your style preferences...")}
+            {t("aiStylist.aiStylistTab.analyzing.title", "Analyzing your style preferences...")}
           </Text>
 
           {/* Progress Bar Container */}
@@ -97,10 +132,10 @@ const AnalyzingOverlay = ({ visible, onCancel }) => {
               />
             </View>
             <Text
-              className="text-[10px] font-Bold mt-2 tracking-[2px]"
+              className="text-[10px] font-Bold mt-2 tracking-[2px] text-center"
               style={{ color: isDarkMode ? "#B8AFCC" : "#A0A0A0" }}
             >
-              {t("aiStylist.analyzing.label", "GENERATING").toUpperCase()}
+              {messages[textIndex].toUpperCase()}
             </Text>
 
             {/* Repositioned Cancel Button */}
@@ -110,7 +145,7 @@ const AnalyzingOverlay = ({ visible, onCancel }) => {
               activeOpacity={0.7}
             >
               <Text className="text-base font-Bold text-[#8E54FE]">
-                {t("aiStylist.analyzing.cancel", "Cancel")}
+                {t("aiStylist.aiStylistTab.analyzing.cancel", "Cancel")}
               </Text>
             </TouchableOpacity>
           </View>
