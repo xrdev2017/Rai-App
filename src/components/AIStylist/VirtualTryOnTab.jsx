@@ -9,7 +9,8 @@ import {
   Pressable,
   Alert,
   ActivityIndicator,
-  Keyboard
+  Keyboard,
+  Platform
 } from "react-native"
 import { ScrollView, FlatList } from "react-native-gesture-handler"
 import * as ImagePicker from "expo-image-picker"
@@ -543,8 +544,8 @@ const VirtualTryOnTab = () => {
     <View 
       className="px-5 pt-3"
       style={{ 
-        paddingBottom: responsiveHeight(10), // Clear the bottom tab bar
-      }}
+        paddingBottom: Platform.OS === "ios" ? responsiveHeight(8) :responsiveHeight(5), // Clear the bottom tab bar
+        }}
     >
       <TouchableOpacity
         onPress={handleTryOutfit}

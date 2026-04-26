@@ -1,6 +1,7 @@
 import Expo
 import FirebaseCore
 import React
+import React_RCTAppDelegate
 import ReactAppDependencyProvider
 
 @UIApplicationMain

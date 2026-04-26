@@ -8,7 +8,8 @@ import {
   StyleSheet,
   Modal,
   ActivityIndicator,
-  Alert
+  Alert,
+  Platform
 } from "react-native"
 import Svg, { Defs, LinearGradient, Stop, Rect } from "react-native-svg"
 import {
@@ -410,7 +411,7 @@ const AIStylistTab = () => {
       <View 
         className="px-5 pt-3"
         style={{ 
-          paddingBottom: responsiveHeight(10), // Clear the bottom tab bar
+          paddingBottom:  Platform.OS === "ios" ? responsiveHeight(8) :responsiveHeight(5), // Clear the bottom tab bar
         }}
       >
         <TouchableOpacity onPress={handleGenerate}>
